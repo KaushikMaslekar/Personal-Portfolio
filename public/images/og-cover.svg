@@ -1,0 +1,23 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#0B0B0F" />
+  <circle cx="1010" cy="90" r="220" fill="url(#paint0_radial)" fill-opacity="0.8" />
+  <circle cx="190" cy="520" r="240" fill="url(#paint1_radial)" fill-opacity="0.7" />
+  <rect x="90" y="100" width="1020" height="430" rx="28" fill="url(#paint2_linear)" stroke="#FFFFFF" stroke-opacity="0.14" />
+  <text x="150" y="250" fill="#FFFFFF" font-family="Inter, system-ui, sans-serif" font-size="30" letter-spacing="3">BACKEND ENGINEER</text>
+  <text x="150" y="332" fill="#FFFFFF" font-family="Space Grotesk, Inter, system-ui, sans-serif" font-size="72" font-weight="700">kaushikmaslekar</text>
+  <text x="150" y="390" fill="#A7B0C0" font-family="JetBrains Mono, monospace" font-size="28">Cloud • Distributed Systems • Platform Engineering</text>
+  <defs>
+    <radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1010 90) rotate(90) scale(220)">
+      <stop stop-color="#22D3EE" />
+      <stop offset="1" stop-color="#22D3EE" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="paint1_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(190 520) rotate(90) scale(240)">
+      <stop stop-color="#7C3AED" />
+      <stop offset="1" stop-color="#7C3AED" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="paint2_linear" x1="90" y1="100" x2="1110" y2="530" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F1220" />
+      <stop offset="1" stop-color="#111523" />
+    </linearGradient>
+  </defs>
+</svg>

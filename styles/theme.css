@@ -1,0 +1,7 @@
+:root {
+  --hero-gradient: linear-gradient(135deg, #000000, #000000);
+}
+
+.dark {
+  --hero-gradient: linear-gradient(135deg, #000000, #000000);
+}
