@@ -11,14 +11,77 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "ai-retrieval-augmented-generation-system",
+    title: "AI Retrieval-Augmented Generation System",
+    summary:
+      "A document-grounded AI system that retrieves relevant information from uploaded knowledge sources and generates accurate answers using a RAG pipeline.",
+    problemSolved:
+      "Improves answer accuracy and reduces hallucinations by grounding responses in indexed documents instead of relying on prompt-only generation.",
+    architecture:
+      "Documents are ingested, chunked, embedded, and stored in FAISS. A retriever fetches relevant context for a FastAPI layer that orchestrates prompt engineering, response generation, and citation-backed outputs.",
+    technologies: [
+      "Python",
+      "LangChain",
+      "FAISS",
+      "FastAPI",
+      "Docker",
+      "OpenAI",
+      "Hugging Face",
+    ],
+    githubUrl:
+      "https://github.com/kaushikkishormaslekar/rag-end-to-end-pipeline",
+    featured: true,
+  },
+  {
+    slug: "agentic-rag-orchestration-platform",
+    title: "Agentic RAG Orchestration Platform",
+    summary:
+      "An advanced RAG system where multiple agents handle planning, retrieval, verification, and answer generation.",
+    problemSolved:
+      "Handles multi-step questions more reliably by separating planning, evidence gathering, verification, and final response synthesis into distinct agent roles.",
+    architecture:
+      "A planner agent decomposes the query, retriever agents gather evidence, a verifier agent checks confidence and source quality, and a response agent synthesizes the final answer. Memory, caching, and orchestration keep the workflow efficient and traceable.",
+    technologies: [
+      "Python",
+      "LangChain",
+      "LangGraph",
+      "FastAPI",
+      "FAISS",
+      "Redis",
+      "Docker",
+    ],
+    githubUrl: "https://github.com/KaushikMaslekar",
+    featured: true,
+  },
+  {
+    slug: "graph-rag-knowledge-intelligence-engine",
+    title: "Graph RAG Knowledge Intelligence Engine",
+    summary:
+      "A Graph RAG system that combines vector search with graph-based relationship traversal for better answers over connected data.",
+    problemSolved:
+      "Solves weak relationship reasoning in vector-only RAG by adding graph traversal for entity and connection-aware retrieval.",
+    architecture:
+      "Entity extraction builds a knowledge graph in Neo4j while embeddings are indexed for semantic recall. Query flow combines vector search, Cypher traversal, and multi-hop reasoning before the LLM generates a grounded answer.",
+    technologies: [
+      "Python",
+      "Neo4j",
+      "LangChain",
+      "FAISS",
+      "FastAPI",
+      "Docker",
+    ],
+    githubUrl: "https://github.com/KaushikMaslekar",
+    featured: true,
+  },
+  {
     slug: "payment-processing-system",
     title: "Payment Processing System",
     summary:
-      "A resilient payment pipeline handling high-throughput transactions with strong consistency and auditable events.",
+      "A resilient payment backend that handles transaction creation, payment tracking, refunds, retries, and audit logs.",
     problemSolved:
-      "Reduced payment failure rates by introducing idempotent APIs, retry queues, and circuit breakers for third-party gateways.",
+      "Keeps transactions reliable under load using idempotency, retry handling, and strong auditability for distributed payment flows.",
     architecture:
-      "Spring Boot microservices process payments asynchronously through Kafka topics. PostgreSQL stores ledger entries while Redis handles short-lived idempotency keys. Observability is powered by OpenTelemetry traces and cloud metrics.",
+      "Spring Boot services process payments through Kafka events. PostgreSQL stores transaction state, Redis supports idempotency and caching, and observability tracks audit logs and retry behavior.",
     technologies: [
       "Java",
       "Spring Boot",
@@ -35,56 +98,40 @@ export const projects: Project[] = [
     slug: "kafka-event-processing-platform",
     title: "Kafka Event Processing Platform",
     summary:
-      "An event-driven platform for processing device telemetry and operational events with near real-time stream analytics.",
+      "An event-driven platform for processing high-volume events using Kafka producers, consumers, and topic-based workflows.",
     problemSolved:
-      "Unified fragmented service communication and improved event delivery reliability for distributed backend services.",
+      "Improves async event delivery, loose coupling, and retry handling for distributed service communication.",
     architecture:
-      "Producers publish domain events to Kafka. Stream processors enrich and route payloads into operational stores. Dead-letter topics and schema validation ensure fault tolerance and forward compatibility.",
+      "Producers publish to Kafka topics, consumers process events asynchronously, and storage layers persist event state. Monitoring and retry paths keep the system resilient and easy to operate.",
     technologies: [
       "Java",
-      "Kafka",
-      "Docker",
-      "Kubernetes",
+      "Spring Boot",
+      "Apache Kafka",
+      "PostgreSQL",
       "MongoDB",
+      "Docker",
       "Prometheus",
     ],
     githubUrl: "https://github.com/KaushikMaslekar",
     featured: true,
   },
   {
-    slug: "iot-device-monitoring-system",
-    title: "IoT Device Monitoring System",
+    slug: "cloud-native-iot-telemetry-monitoring-platform",
+    title: "Cloud-Native IoT Telemetry Monitoring Platform",
     summary:
-      "Cloud-native monitoring stack for IoT sensors with automated alerting and historical trend analysis.",
+      "An IoT monitoring system that tracks device health, telemetry data, alerts, and historical sensor trends.",
     problemSolved:
-      "Enabled reliable ingestion and anomaly alerting for distributed sensor fleets where connectivity is intermittent.",
+      "Enables reliable telemetry ingestion and actionable alerting for devices operating in distributed or intermittently connected environments.",
     architecture:
-      "ESP32 devices publish telemetry to an API gateway. Backend services store and aggregate data for dashboards and alerts. A rule engine triggers notifications when fire-risk thresholds are detected.",
+      "Devices register with the platform, send telemetry through MQTT and event pipelines, and data lands in PostgreSQL and Kafka-backed workflows. Dashboards and alert rules expose device health, thresholds, and historical metrics.",
     technologies: [
-      "Next.js",
+      "Spring Boot",
       "Python",
-      "Firebase",
-      "IoT",
-      "ESP32",
-      "Cloud Functions",
-    ],
-    githubUrl: "https://github.com/KaushikMaslekar",
-    featured: true,
-  },
-  {
-    slug: "ai-rag-knowledge-assistant",
-    title: "AI Retrieval Augmented Generation System",
-    summary:
-      "A domain-focused knowledge assistant using retrieval augmented generation to reduce hallucinations.",
-    problemSolved:
-      "Improved answer factuality over baseline LLM prompting by grounding responses in indexed private documents.",
-    architecture:
-      "Documents are embedded into a vector index. A retriever fetches relevant chunks and injects context into LLM prompts. Response post-processing adds citations and confidence hints.",
-    technologies: [
-      "Python",
-      "LangChain",
-      "FAISS",
-      "Transformers",
+      "MQTT",
+      "PostgreSQL",
+      "Redis",
+      "Kafka",
+      "Grafana",
       "Docker",
       "AWS",
     ],
@@ -92,176 +139,131 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    slug: "agentic-rag-orchestration-platform",
-    title: "Agentic RAG Orchestration Platform",
+    slug: "production-ready-aws-cloud-infrastructure-architecture",
+    title: "Production-Ready AWS Cloud Infrastructure Architecture",
     summary:
-      "A multi-agent retrieval system where planner, retriever, verifier, and response agents collaborate to answer complex enterprise queries with higher reliability.",
+      "A production-style AWS architecture with VPC isolation, secure routing, monitoring, and optional multi-region failover.",
     problemSolved:
-      "Addressed weak single-shot RAG behavior on multi-step questions by introducing agent-level planning, tool routing, and verification before final response generation.",
+      "Replaces insecure flat-network deployments with segmented infrastructure, routing controls, and infrastructure-as-code driven governance.",
     architecture:
-      "An orchestrator agent decomposes user intent into subtasks, dispatches retrieval workers across vector stores and APIs, and passes gathered evidence to a critique agent. A final synthesis agent generates grounded output with source traces, confidence scoring, and retry logic for low-confidence paths.",
-    technologies: [
-      "Python",
-      "LangChain",
-      "LlamaIndex",
-      "FAISS",
-      "OpenAI API",
-      "FastAPI",
-      "Redis",
-      "Docker",
-    ],
-    githubUrl: "https://github.com/KaushikMaslekar",
-    featured: true,
-  },
-  {
-    slug: "graph-rag-knowledge-intelligence-engine",
-    title: "Graph RAG Knowledge Intelligence Engine",
-    summary:
-      "A Graph RAG system that combines knowledge graphs with semantic retrieval to answer relationship-heavy questions across entities, events, and documents.",
-    problemSolved:
-      "Solved context fragmentation in standard vector-only retrieval by adding graph traversal for entity relations, enabling more accurate answers for dependency and causality queries.",
-    architecture:
-      "Ingestion builds entity and relation triples from documents and stores them in Neo4j, while embeddings are indexed for semantic recall. Query flow uses hybrid retrieval: vector search for candidate context and graph traversal for connected evidence paths. A reasoning layer merges both contexts before LLM generation and includes cited graph edges in output.",
-    technologies: [
-      "Python",
-      "Neo4j",
-      "Cypher",
-      "LangChain",
-      "Transformers",
-      "FAISS",
-      "FastAPI",
-      "Docker",
-    ],
-    githubUrl: "https://github.com/KaushikMaslekar",
-    featured: true,
-  },
-  {
-    slug: "enterprise-network-monitoring-system",
-    title: "Enterprise Network Monitoring System",
-    summary:
-      "A centralized observability platform for enterprise networks with real-time health checks, anomaly alerts, and SLA-focused dashboards.",
-    problemSolved:
-      "Reduced mean-time-to-detect by consolidating fragmented network telemetry into a single monitoring plane with actionable incident insights.",
-    architecture:
-      "Distributed collectors ingest SNMP/flow/log data from routers, switches, and firewalls. A stream processing layer aggregates metrics and triggers threshold- and pattern-based alerts. A dashboard service surfaces topology-aware status, outage blast radius, and historical trends for operations teams.",
-    technologies: [
-      "Python",
-      "Prometheus",
-      "Grafana",
-      "Kafka",
-      "Redis",
-      "Docker",
-      "Linux",
-    ],
-    githubUrl: "https://github.com/KaushikMaslekar",
-    featured: true,
-  },
-  {
-    slug: "aws-multi-tier-vpc-architecture",
-    title: "AWS Multi-Tier VPC Architecture",
-    summary:
-      "Production-ready AWS reference architecture with isolated public/private tiers, secure connectivity boundaries, and scalable service deployment patterns.",
-    problemSolved:
-      "Eliminated insecure flat-network deployments by implementing segmented network tiers, controlled ingress/egress, and policy-driven infrastructure provisioning.",
-    architecture:
-      "Infrastructure-as-Code provisions a multi-AZ VPC with public subnets for load balancers, private app subnets for compute, and isolated data subnets for persistence. Security groups, NACLs, NAT gateways, and IAM boundaries enforce least privilege. Monitoring and logging pipelines provide auditability and operational visibility.",
+      "Terraform provisions a VPC with public and private subnets, NAT and internet gateways, isolated database layers, and routing controls. Monitoring, logging, and Route 53 health checks support resilience and failover.",
     technologies: [
       "AWS",
       "Terraform",
-      "VPC",
       "EC2",
       "RDS",
-      "CloudWatch",
+      "VPC",
       "IAM",
+      "CloudWatch",
+      "Route 53",
     ],
     githubUrl: "https://github.com/KaushikMaslekar",
     featured: true,
   },
   {
-    slug: "multi-region-traffic-routing-system",
-    title: "Multi-Region Traffic Routing System",
+    slug: "microservices-based-e-commerce-platform",
+    title: "Microservices-Based E-commerce Platform",
     summary:
-      "A high-availability traffic routing layer that directs users to healthy nearest regions with failover automation and latency-aware policies.",
+      "A distributed e-commerce backend built with user, product, cart, order, payment, inventory, and notification services.",
     problemSolved:
-      "Minimized downtime during regional incidents and improved global response times by introducing health-based routing and automated failover.",
+      "Demonstrates service decomposition, inter-service communication, and scalable backend design for real-world commerce systems.",
     architecture:
-      "Global DNS and edge routing policies evaluate health checks, latency metrics, and region priority rules. Traffic is routed to active regions backed by replicated application stacks and data synchronization pipelines. Circuit-breaker and canary controls support safe region shifts during incidents and releases.",
+      "Spring Boot microservices communicate through an API gateway and Kafka events. Each service owns its data, while Redis supports caching and service discovery keeps the system easy to scale.",
     technologies: [
-      "AWS",
-      "Route 53",
-      "CloudFront",
-      "Kubernetes",
+      "Java",
+      "Spring Boot",
+      "Spring Cloud Gateway",
+      "Eureka",
+      "Kafka",
+      "PostgreSQL",
+      "Redis",
+      "Docker",
+    ],
+    githubUrl: "https://github.com/KaushikMaslekar",
+    featured: false,
+  },
+  {
+    slug: "saas-subscription-billing-system",
+    title: "SaaS Subscription Billing System",
+    summary:
+      "A backend system for subscription plans, billing cycles, invoices, renewals, usage limits, and account suspension.",
+    problemSolved:
+      "Models a realistic SaaS billing workflow with lifecycle events, renewals, and usage-aware account management.",
+    architecture:
+      "Spring Boot services manage plans, subscriptions, invoices, and payment events. PostgreSQL stores billing state, Redis supports fast lookups, and Kafka handles renewal and notification workflows.",
+    technologies: [
+      "Java",
+      "Spring Boot",
+      "PostgreSQL",
+      "Redis",
+      "Kafka",
+      "Docker",
+    ],
+    githubUrl: "https://github.com/KaushikMaslekar",
+    featured: false,
+  },
+  {
+    slug: "api-gateway-and-authentication-platform",
+    title: "API Gateway and Authentication Platform",
+    summary:
+      "A centralized authentication and API routing platform with JWT, role-based access control, rate limiting, and request logging.",
+    problemSolved:
+      "Shows how to secure and govern backend traffic with centralized auth, token validation, and request control.",
+    architecture:
+      "Spring Security handles login and refresh tokens, while Spring Cloud Gateway routes traffic, enforces RBAC, applies Redis-backed rate limits, and records request logs.",
+    technologies: [
+      "Java",
+      "Spring Boot",
+      "Spring Security",
+      "Spring Cloud Gateway",
+      "Redis",
+      "PostgreSQL",
+      "Docker",
+    ],
+    githubUrl: "https://github.com/KaushikMaslekar",
+    featured: false,
+  },
+  {
+    slug: "lan-based-peer-to-peer-file-sharing-system",
+    title: "LAN-Based Peer-to-Peer File Sharing System",
+    summary:
+      "A local-network file sharing system where nearby devices discover each other and transfer files without internet.",
+    problemSolved:
+      "Highlights networking, discovery, and chunked transfer mechanics for real-time local device communication.",
+    architecture:
+      "Devices discover peers over LAN, negotiate transfers through TCP and UDP multicast, and stream files in chunks with retry and integrity checks. A lightweight UI tracks progress and device availability.",
+    technologies: [
+      "Java",
+      "Spring Boot",
+      "TCP Sockets",
+      "UDP Multicast",
+      "WebSocket",
+      "React",
+      "JavaFX",
+      "Docker",
+    ],
+    githubUrl: "https://github.com/KaushikMaslekar",
+    featured: true,
+  },
+  {
+    slug: "cloud-native-network-device-monitoring-platform",
+    title: "Cloud-Native Network Device Monitoring Platform",
+    summary:
+      "A monitoring platform for servers, routers, and network devices using health checks, latency tracking, uptime checks, and alerting.",
+    problemSolved:
+      "Provides a cloud-native way to monitor network infrastructure with SLA-aware reporting and actionable downtime alerts.",
+    architecture:
+      "Health probes, ping checks, and latency collectors feed metrics into PostgreSQL and Prometheus. Grafana dashboards visualize uptime, packet loss, and alert state across the monitored fleet.",
+    technologies: [
+      "Spring Boot",
+      "Python",
+      "PostgreSQL",
       "Prometheus",
       "Grafana",
-      "Terraform",
-    ],
-    githubUrl: "https://github.com/KaushikMaslekar",
-    featured: true,
-  },
-  {
-    slug: "ai-research-agent",
-    title: "AI Research Agent",
-    summary:
-      "An autonomous research assistant that plans literature exploration, gathers evidence from trusted sources, and synthesizes structured findings with citations.",
-    problemSolved:
-      "Reduced manual research time by automating source discovery, extraction, and summarization while preserving verifiability through citation-backed outputs.",
-    architecture:
-      "A planner agent decomposes a research question into subtopics, tool agents fetch relevant papers/articles, and a verifier agent scores source quality. A synthesis layer combines evidence into concise briefs with citation links, confidence indicators, and follow-up questions.",
-    technologies: [
-      "Python",
-      "LangChain",
-      "LlamaIndex",
-      "OpenAI API",
-      "FastAPI",
-      "PostgreSQL",
       "Docker",
     ],
     githubUrl: "https://github.com/KaushikMaslekar",
-    featured: true,
-  },
-  {
-    slug: "multi-model-rag-platform",
-    title: "Multi-Model RAG Platform",
-    summary:
-      "A retrieval platform that dynamically routes queries across multiple LLMs and embedding models to optimize answer quality, latency, and cost.",
-    problemSolved:
-      "Solved single-model bottlenecks by introducing adaptive model selection and fallback chains for domain-specific queries and variable workloads.",
-    architecture:
-      "A routing gateway classifies query intent and complexity, then selects best-fit model stacks for retrieval and generation. Hybrid retrieval combines vector, keyword, and reranking stages, while observability tracks per-model accuracy, response time, and token economics.",
-    technologies: [
-      "Python",
-      "LangChain",
-      "FAISS",
-      "Transformers",
-      "Redis",
-      "FastAPI",
-      "Docker",
-      "Prometheus",
-    ],
-    githubUrl: "https://github.com/KaushikMaslekar",
-    featured: true,
-  },
-  {
-    slug: "legal-ai-assistant",
-    title: "Legal AI Assistant",
-    summary:
-      "A domain-tuned legal assistant for clause analysis, case-law retrieval, and compliance-oriented question answering over legal documents.",
-    problemSolved:
-      "Improved legal document review speed and consistency by combining grounded retrieval with policy-aware response generation.",
-    architecture:
-      "Legal documents are chunked and indexed with metadata (jurisdiction, section, effective date). Query processing applies legal-intent templates, retrieves relevant statutes/cases, and generates answers with explicit references and risk flags for ambiguous interpretations.",
-    technologies: [
-      "Python",
-      "LangChain",
-      "LlamaIndex",
-      "FAISS",
-      "PostgreSQL",
-      "FastAPI",
-      "Docker",
-      "AWS",
-    ],
-    githubUrl: "https://github.com/KaushikMaslekar",
-    featured: true,
+    featured: false,
   },
 ];
 
