@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
-import { ExperienceTimeline } from "@/components/ExperienceTimeline";
+import { ExperienceSection } from "@/components/ExperienceSection";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
-import { backendSkills, education } from "@/data/skills";
+import { backendSkills, educationEntries } from "@/data/skills";
 
 export const metadata: Metadata = {
   title: "About | kaushikmaslekar",
@@ -46,22 +46,29 @@ export default function AboutPage() {
             </div>
           </section>
 
-          <ExperienceTimeline />
+          <ExperienceSection />
 
           <section>
             <h2 className="font-display text-[2rem] tracking-tight text-foreground md:text-[2.25rem]">
               Education
             </h2>
-            <div className="mt-5 rounded-2xl border border-white/10 bg-card/60 p-6">
-              <h3 className="text-xl font-semibold text-foreground">
-                {education.degree}
-              </h3>
-              <p className="mt-2 text-sm text-zinc-300">
-                {education.institution}
-              </p>
-              <p className="mt-2 text-sm text-muted-foreground">
-                {education.period}
-              </p>
+            <div className="mt-5 grid gap-4 md:grid-cols-2">
+              {educationEntries.map((entry) => (
+                <div
+                  key={`${entry.degree}-${entry.institution}`}
+                  className="rounded-2xl border border-white/10 bg-card/60 p-6"
+                >
+                  <h3 className="text-xl font-semibold text-foreground">
+                    {entry.degree}
+                  </h3>
+                  <p className="mt-2 text-sm text-zinc-300">
+                    {entry.institution}
+                  </p>
+                  <p className="mt-2 text-sm text-muted-foreground">
+                    {entry.period}
+                  </p>
+                </div>
+              ))}
             </div>
           </section>
         </div>

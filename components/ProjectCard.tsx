@@ -34,20 +34,65 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             {project.title}
           </CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4">
+        <CardContent className="space-y-3">
           <p className="text-sm leading-relaxed text-muted-foreground">
             {project.summary}
           </p>
-          <div className="flex flex-wrap gap-2">
-            {project.technologies.map((tech) => (
+
+          {/* Engineering Challenges */}
+          {project.engineeringChallenges &&
+            project.engineeringChallenges.length > 0 && (
+              <div className="space-y-2 pt-2 border-t border-white/5">
+                <ul className="space-y-1">
+                  {project.engineeringChallenges
+                    .slice(0, 2)
+                    .map((challenge) => (
+                      <li
+                        key={challenge}
+                        className="text-xs text-muted-foreground flex items-start gap-2"
+                      >
+                        <span className="text-muted-foreground/40 mt-1 text-[5px]">▪</span>
+                        <span>{challenge}</span>
+                      </li>
+                    ))}
+                </ul>
+              </div>
+            )}
+
+          {/* Metrics */}
+          {project.metrics && project.metrics.length > 0 && (
+            <div className="grid grid-cols-3 gap-2 rounded-lg bg-white/5 p-2 pt-3 border-t border-white/5">
+              {project.metrics.slice(0, 3).map((metric) => (
+                <div key={metric.label} className="space-y-0.5">
+                  <p className="text-xs font-mono text-foreground font-semibold">
+                    {metric.value}
+                  </p>
+                  <p className="text-[10px] text-muted-foreground leading-tight">
+                    {metric.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+          )}
+
+          <div className="flex flex-wrap gap-1.5 pt-2 border-t border-white/5">
+            {project.technologies.slice(0, 6).map((tech) => (
               <Badge
                 key={tech}
                 variant="secondary"
-                className="bg-muted/70 text-xs"
+                className="bg-white/5 border border-white/10 text-muted-foreground text-xs font-normal"
               >
                 {tech}
               </Badge>
             ))}
+            {project.technologies.length > 6 && (
+              <Badge
+                variant="secondary"
+                className="bg-white/5 border border-white/10 text-muted-foreground text-xs font-normal"
+              >
+                +{project.technologies.length - 6}
+              </Badge>
+            )}
           </div>
         </CardContent>
         <CardFooter className="mt-auto flex items-center gap-4 border-t border-white/10 pt-5">

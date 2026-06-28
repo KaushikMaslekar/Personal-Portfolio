@@ -2,46 +2,36 @@ export const techStack = [
   "Java",
   "Python",
   "Spring Boot",
-  "AWS",
-  "Docker",
-  "Kubernetes",
-  "Kafka",
+  "Apache Kafka",
   "PostgreSQL",
   "Redis",
   "MongoDB",
-  "Linux",
-  "Git",
+  "AWS",
   "Terraform",
-  "Next.js",
-  "Firebase",
-  "TensorFlow",
-  "PyTorch",
-  "Scikit-learn",
-  "LangChain",
-  "MLflow",
-  "Apache Spark",
-  "Pandas",
-  "NumPy",
+  "Docker",
+  "Kubernetes",
   "Prometheus",
+  "Grafana",
+  "LangChain",
+  "Elasticsearch",
+  "Git",
+  "Linux",
 ] as const;
 
 export const backendSkills = [
-  "REST API Design",
-  "Microservices",
-  "Event-Driven Architecture",
-  "Distributed Systems",
+  "Microservices Architecture",
+  "Event-Driven Systems",
+  "Distributed Transaction Handling",
+  "High-Performance APIs",
+  "System Design & Scalability",
   "Cloud Infrastructure",
-  "CI/CD Pipelines",
-  "Performance Optimization",
-  "System Observability",
-  "RAG Pipelines",
-  "Vector Search Integration",
-  "Model Deployment",
-  "MLOps Workflows",
-  "Real-time Data Processing",
-  "IoT Data Ingestion",
-  "Prompt Engineering",
-  "ETL and Data Pipelines",
+  "Observability & Monitoring",
+  "Idempotent API Design",
+  "Exactly-Once Processing",
+  "Circuit Breakers & Resilience",
+  "Infrastructure as Code",
+  "Containerization",
+  "RAG & Vector Search",
 ] as const;
 
 export type SkillGroup = {
@@ -51,102 +41,97 @@ export type SkillGroup = {
 
 export const skillGroups: SkillGroup[] = [
   {
-    title: "Backend",
+    title: "Backend & Frameworks",
     items: [
       "Spring Boot",
-      "Spring MVC",
       "Spring Cloud",
+      "Spring Security",
       "Microservices",
-      "REST APIs",
+      "REST API Design",
+      "API Gateways",
     ],
-  },
-  {
-    title: "Data & Persistence",
-    items: ["JPA", "Hibernate", "JDBC", "Solr"],
-  },
-  {
-    title: "Databases",
-    items: ["OracleDB", "MySQL", "MongoDB", "PostgreSQL"],
   },
   {
     title: "Distributed Systems",
     items: [
-      "Kafka",
-      "Redis",
-      "Hazelcast",
-      "Reactive Streams (Mono/Flux)",
-      "Resilience4j",
-      "Multithreading",
+      "Apache Kafka",
+      "Event Streaming",
+      "Consumer Groups",
+      "Exactly-Once Semantics",
+      "Message Ordering",
+      "Dead-Letter Queues",
     ],
   },
   {
-    title: "DevOps & Monitoring",
+    title: "Databases & Caching",
+    items: [
+      "PostgreSQL",
+      "MongoDB",
+      "Redis",
+      "Data Modeling",
+      "Connection Pooling",
+      "Query Optimization",
+      "Replication & Failover",
+    ],
+  },
+  {
+    title: "Cloud & Infrastructure",
+    items: [
+      "AWS (EC2, RDS, VPC, S3, Route 53)",
+      "Terraform",
+      "Infrastructure as Code",
+      "Multi-AZ Architecture",
+      "Auto Scaling",
+      "Load Balancing",
+      "Security Groups & IAM",
+    ],
+  },
+  {
+    title: "Observability & Monitoring",
+    items: [
+      "Prometheus",
+      "Grafana",
+      "CloudWatch",
+      "Distributed Tracing",
+      "Structured Logging",
+      "SLO/SLI Definition",
+      "Alert Management",
+    ],
+  },
+  {
+    title: "Containerization & Orchestration",
     items: [
       "Docker",
       "Kubernetes",
-      "AWS",
-      "Terraform",
-      "Jenkins CI/CD",
-      "Git",
-      "Prometheus",
-      "Grafana",
-      "Datadog",
+      "Helm",
+      "Container Networking",
+      "StatefulSets & DaemonSets",
+      "Service Mesh Concepts",
     ],
   },
   {
-    title: "Testing & Tools",
+    title: "AI & RAG (Secondary)",
     items: [
-      "JUnit",
-      "Mockito",
-      "Maven",
-      "Gradle",
-      "Postman",
-      "Swagger",
-      "IntelliJ IDEA",
-      "VS Code",
-    ],
-  },
-  {
-    title: "AI & Deep Learning",
-    items: [
-      "Scikit-learn",
-      "TensorFlow",
-      "PyTorch",
-      "CNNs",
-      "RNN/LSTM",
-      "Attention Mechanisms",
-      "Transformer Architecture",
-    ],
-  },
-  {
-    title: "LLM Engineering",
-    items: [
-      "RAG",
       "LangChain",
-      "LlamaIndex",
-      "Vector Databases (FAISS, Pinecone, Chroma)",
+      "Vector Databases (FAISS, Pinecone)",
+      "Hybrid Search (Semantic + BM25)",
+      "Retrieval-Augmented Generation",
+      "LLM Orchestration",
       "Prompt Engineering",
     ],
   },
   {
-    title: "MLOps",
+    title: "Development Tools",
     items: [
-      "MLflow",
-      "Experiment Tracking",
-      "Model Versioning",
-      "Kubeflow",
-      "Docker",
-      "Kubernetes",
-      "CI/CD for ML Pipelines",
+      "Maven",
+      "Gradle",
+      "Git",
+      "JUnit",
+      "Mockito",
+      "Postman",
+      "IntelliJ IDEA",
+      "VS Code",
     ],
-  },
-  {
-    title: "Data Processing",
-    items: ["Pandas", "NumPy", "Apache Spark", "Kafka"],
-  },
-  {
-    title: "Programming",
-    items: ["Python", "SQL", "Java"],
   },
 ];
 
@@ -157,20 +142,40 @@ export type ExperienceItem = {
   details: string;
 };
 
-export const experiences: ExperienceItem[] = [
+export type FeaturedExperience = {
+  role: string;
+  company: string;
+  period: string;
+  summary: string;
+  contributions: string[];
+  technologies: string[];
+  githubUrl: string;
+};
+
+export const featuredExperiences: FeaturedExperience[] = [
   {
-    role: "Network Engineer Intern",
-    company: "Shri Software Technologies",
-    period: "Nov 2023 - Feb 2024",
-    details:
-      "Configured and monitored enterprise network infrastructure, collaborated on design tasks, and analyzed traffic patterns to maintain reliable system performance.",
-  },
-  {
-    role: "Java Development Intern",
-    company: "Shri Software Technologies",
-    period: "Jul 2023 - Oct 2023",
-    details:
-      "Worked on REST APIs and microservices while contributing to backend feature delivery and research-driven architecture improvements.",
+    role: "AI/ML Intern",
+    company: "YBI Foundation",
+    period: "Feb 2026 - May 2026",
+    summary:
+      "Worked on practical machine learning and LLM applications, focusing on data processing pipelines and Retrieval-Augmented Generation systems.",
+    contributions: [
+      "Built a Retrieval-Augmented Generation (RAG) application using Python and LangChain for document-grounded question answering.",
+      "Developed document ingestion workflows including preprocessing, chunking, embedding generation, and semantic retrieval mechanisms.",
+      "Automated feature engineering and statistical analysis pipelines using Python, Pandas, and NumPy.",
+      "Improved retrieval quality through prompt engineering and evaluation of different retrieval strategies.",
+    ],
+    technologies: [
+      "Python",
+      "LangChain",
+      "FAISS",
+      "Pandas",
+      "NumPy",
+      "RAG",
+      "LLM Applications",
+    ],
+    githubUrl:
+      "https://github.com/kaushikkishormaslekar/rag-end-to-end-pipeline",
   },
 ];
 
@@ -179,3 +184,13 @@ export const education = {
   institution: "Marathwada Mitra Mandal's College of Engineering, Pune",
   period: "Aug 2024 - Present",
 };
+
+export const educationEntries = [
+  education,
+  {
+    degree: "Diploma in Computer Engineering",
+    institution:
+      "Krushnaji Purushottam Chousalkar Yogeshwari Polytechnic, Ambajogai",
+    period: "June 2022 - April 2024",
+  },
+] as const;

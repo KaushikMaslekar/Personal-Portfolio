@@ -7,81 +7,23 @@ export type Project = {
   technologies: string[];
   githubUrl: string;
   featured: boolean;
+  engineeringChallenges?: string[];
+  metrics?: {
+    label: string;
+    value: string;
+  }[];
 };
 
 export const projects: Project[] = [
   {
-    slug: "ai-retrieval-augmented-generation-system",
-    title: "AI Retrieval-Augmented Generation System",
-    summary:
-      "A document-grounded AI system that retrieves relevant information from uploaded knowledge sources and generates accurate answers using a RAG pipeline.",
-    problemSolved:
-      "Improves answer accuracy and reduces hallucinations by grounding responses in indexed documents instead of relying on prompt-only generation.",
-    architecture:
-      "Documents are ingested, chunked, embedded, and stored in FAISS. A retriever fetches relevant context for a FastAPI layer that orchestrates prompt engineering, response generation, and citation-backed outputs.",
-    technologies: [
-      "Python",
-      "LangChain",
-      "FAISS",
-      "FastAPI",
-      "Docker",
-      "OpenAI",
-      "Hugging Face",
-    ],
-    githubUrl:
-      "https://github.com/kaushikkishormaslekar/rag-end-to-end-pipeline",
-    featured: true,
-  },
-  {
-    slug: "agentic-rag-orchestration-platform",
-    title: "Agentic RAG Orchestration Platform",
-    summary:
-      "An advanced RAG system where multiple agents handle planning, retrieval, verification, and answer generation.",
-    problemSolved:
-      "Handles multi-step questions more reliably by separating planning, evidence gathering, verification, and final response synthesis into distinct agent roles.",
-    architecture:
-      "A planner agent decomposes the query, retriever agents gather evidence, a verifier agent checks confidence and source quality, and a response agent synthesizes the final answer. Memory, caching, and orchestration keep the workflow efficient and traceable.",
-    technologies: [
-      "Python",
-      "LangChain",
-      "LangGraph",
-      "FastAPI",
-      "FAISS",
-      "Redis",
-      "Docker",
-    ],
-    githubUrl: "https://github.com/KaushikMaslekar",
-    featured: true,
-  },
-  {
-    slug: "graph-rag-knowledge-intelligence-engine",
-    title: "Graph RAG Knowledge Intelligence Engine",
-    summary:
-      "A Graph RAG system that combines vector search with graph-based relationship traversal for better answers over connected data.",
-    problemSolved:
-      "Solves weak relationship reasoning in vector-only RAG by adding graph traversal for entity and connection-aware retrieval.",
-    architecture:
-      "Entity extraction builds a knowledge graph in Neo4j while embeddings are indexed for semantic recall. Query flow combines vector search, Cypher traversal, and multi-hop reasoning before the LLM generates a grounded answer.",
-    technologies: [
-      "Python",
-      "Neo4j",
-      "LangChain",
-      "FAISS",
-      "FastAPI",
-      "Docker",
-    ],
-    githubUrl: "https://github.com/KaushikMaslekar",
-    featured: true,
-  },
-  {
     slug: "payment-processing-system",
     title: "Payment Processing System",
     summary:
-      "A resilient payment backend that handles transaction creation, payment tracking, refunds, retries, and audit logs.",
+      "Production-grade payment backend handling high-volume transactions with idempotency guarantees, distributed retry logic, and real-time audit trails.",
     problemSolved:
-      "Keeps transactions reliable under load using idempotency, retry handling, and strong auditability for distributed payment flows.",
+      "Implements exactly-once payment processing semantics using idempotency keys and distributed transactions. Ensures no duplicate charges under retry storms and maintains consistency across service failures.",
     architecture:
-      "Spring Boot services process payments through Kafka events. PostgreSQL stores transaction state, Redis supports idempotency and caching, and observability tracks audit logs and retry behavior.",
+      "REST API → Spring Boot Gateway → Kafka event stream → Payment Service (idempotency layer) → PostgreSQL (transactional state) + Redis (cache + duplicate detection). Ledger Service subscribes to events for accounting. Dead-letter queue handles failed transactions.",
     technologies: [
       "Java",
       "Spring Boot",
@@ -93,16 +35,23 @@ export const projects: Project[] = [
     ],
     githubUrl: "https://github.com/KaushikMaslekar",
     featured: true,
+    engineeringChallenges: [
+      "Idempotency under retry storms",
+      "Exactly-once processing semantics",
+      "Distributed transaction coordination",
+      "Dead-letter queue handling",
+      "Audit trail immutability",
+    ],
   },
   {
     slug: "kafka-event-processing-platform",
     title: "Kafka Event Processing Platform",
     summary:
-      "An event-driven platform for processing high-volume events using Kafka producers, consumers, and topic-based workflows.",
+      "Distributed event streaming platform processing millions of events daily with strict ordering guarantees, exactly-once delivery semantics, and multi-consumer scalability.",
     problemSolved:
-      "Improves async event delivery, loose coupling, and retry handling for distributed service communication.",
+      "Decouples services while maintaining ordering guarantees per partition. Handles backpressure, consumer lag monitoring, and replay scenarios for event reprocessing.",
     architecture:
-      "Producers publish to Kafka topics, consumers process events asynchronously, and storage layers persist event state. Monitoring and retry paths keep the system resilient and easy to operate.",
+      "Event Producers → Kafka Topic (partitioned by key) → Consumer Groups (horizontal scaling) → PostgreSQL + MongoDB (dual writes) → Kafka Streams (stateful processing) → Prometheus (metrics collection). Topics replicated across 3 brokers for durability.",
     technologies: [
       "Java",
       "Spring Boot",
@@ -114,39 +63,23 @@ export const projects: Project[] = [
     ],
     githubUrl: "https://github.com/KaushikMaslekar",
     featured: true,
-  },
-  {
-    slug: "cloud-native-iot-telemetry-monitoring-platform",
-    title: "Cloud-Native IoT Telemetry Monitoring Platform",
-    summary:
-      "An IoT monitoring system that tracks device health, telemetry data, alerts, and historical sensor trends.",
-    problemSolved:
-      "Enables reliable telemetry ingestion and actionable alerting for devices operating in distributed or intermittently connected environments.",
-    architecture:
-      "Devices register with the platform, send telemetry through MQTT and event pipelines, and data lands in PostgreSQL and Kafka-backed workflows. Dashboards and alert rules expose device health, thresholds, and historical metrics.",
-    technologies: [
-      "Spring Boot",
-      "Python",
-      "MQTT",
-      "PostgreSQL",
-      "Redis",
-      "Kafka",
-      "Grafana",
-      "Docker",
-      "AWS",
+    engineeringChallenges: [
+      "Exactly-once delivery semantics",
+      "Event ordering per partition",
+      "Consumer lag monitoring",
+      "Backpressure handling",
+      "Rebalancing without data loss",
     ],
-    githubUrl: "https://github.com/KaushikMaslekar",
-    featured: true,
   },
   {
-    slug: "production-ready-aws-cloud-infrastructure-architecture",
-    title: "Production-Ready AWS Cloud Infrastructure Architecture",
+    slug: "aws-multi-tier-infrastructure-project",
+    title: "AWS Multi-Tier Infrastructure as Code",
     summary:
-      "A production-style AWS architecture with VPC isolation, secure routing, monitoring, and optional multi-region failover.",
+      "Production-grade cloud infrastructure using Terraform for VPC segmentation, load balancing, database high availability, and multi-region failover.",
     problemSolved:
-      "Replaces insecure flat-network deployments with segmented infrastructure, routing controls, and infrastructure-as-code driven governance.",
+      "Replaces manual infrastructure with version-controlled IaC. Enables repeatable deployments, disaster recovery planning, and cost optimization through resource automation.",
     architecture:
-      "Terraform provisions a VPC with public and private subnets, NAT and internet gateways, isolated database layers, and routing controls. Monitoring, logging, and Route 53 health checks support resilience and failover.",
+      "Internet → ALB (public) → Auto Scaling Group (public subnets) → Spring Boot Services → Private RDS PostgreSQL (multi-AZ) + Redis Cluster (ElastiCache). Route 53 for health checks and failover. CloudWatch + VPC Flow Logs for observability.",
     technologies: [
       "AWS",
       "Terraform",
@@ -159,111 +92,74 @@ export const projects: Project[] = [
     ],
     githubUrl: "https://github.com/KaushikMaslekar",
     featured: true,
+    engineeringChallenges: [
+      "Multi-AZ high availability",
+      "Security group management at scale",
+      "VPC peering and routing",
+      "Database failover automation",
+      "Cost optimization and right-sizing",
+    ],
   },
   {
-    slug: "microservices-based-e-commerce-platform",
-    title: "Microservices-Based E-commerce Platform",
+    slug: "enterprise-rag-platform",
+    title: "Enterprise RAG Platform",
     summary:
-      "A distributed e-commerce backend built with user, product, cart, order, payment, inventory, and notification services.",
+      "Scalable Retrieval-Augmented Generation system processing enterprise documents with hybrid search (semantic + keyword), reranking, and citation tracking.",
     problemSolved:
-      "Demonstrates service decomposition, inter-service communication, and scalable backend design for real-world commerce systems.",
+      "Reduces LLM hallucinations by grounding responses in indexed documents. Hybrid search improves recall while reranking improves precision. Citation tracking enables audit trails for enterprise compliance.",
     architecture:
-      "Spring Boot microservices communicate through an API gateway and Kafka events. Each service owns its data, while Redis supports caching and service discovery keeps the system easy to scale.",
+      "Document Upload → Chunking Pipeline (sentence-window strategy) → Dual Embedding (OpenAI + local model) → Vector DB (Pinecone) + BM25 index (Elasticsearch) → Hybrid Retrieval → Reranker (cross-encoder) → LLM Orchestration (LangChain) → Response with Citations.",
     technologies: [
-      "Java",
-      "Spring Boot",
-      "Spring Cloud Gateway",
-      "Eureka",
-      "Kafka",
-      "PostgreSQL",
+      "Python",
+      "LangChain",
+      "LlamaIndex",
+      "Pinecone",
+      "Elasticsearch",
+      "FastAPI",
       "Redis",
       "Docker",
     ],
-    githubUrl: "https://github.com/KaushikMaslekar",
-    featured: false,
-  },
-  {
-    slug: "saas-subscription-billing-system",
-    title: "SaaS Subscription Billing System",
-    summary:
-      "A backend system for subscription plans, billing cycles, invoices, renewals, usage limits, and account suspension.",
-    problemSolved:
-      "Models a realistic SaaS billing workflow with lifecycle events, renewals, and usage-aware account management.",
-    architecture:
-      "Spring Boot services manage plans, subscriptions, invoices, and payment events. PostgreSQL stores billing state, Redis supports fast lookups, and Kafka handles renewal and notification workflows.",
-    technologies: [
-      "Java",
-      "Spring Boot",
-      "PostgreSQL",
-      "Redis",
-      "Kafka",
-      "Docker",
-    ],
-    githubUrl: "https://github.com/KaushikMaslekar",
-    featured: false,
-  },
-  {
-    slug: "api-gateway-and-authentication-platform",
-    title: "API Gateway and Authentication Platform",
-    summary:
-      "A centralized authentication and API routing platform with JWT, role-based access control, rate limiting, and request logging.",
-    problemSolved:
-      "Shows how to secure and govern backend traffic with centralized auth, token validation, and request control.",
-    architecture:
-      "Spring Security handles login and refresh tokens, while Spring Cloud Gateway routes traffic, enforces RBAC, applies Redis-backed rate limits, and records request logs.",
-    technologies: [
-      "Java",
-      "Spring Boot",
-      "Spring Security",
-      "Spring Cloud Gateway",
-      "Redis",
-      "PostgreSQL",
-      "Docker",
-    ],
-    githubUrl: "https://github.com/KaushikMaslekar",
-    featured: false,
-  },
-  {
-    slug: "lan-based-peer-to-peer-file-sharing-system",
-    title: "LAN-Based Peer-to-Peer File Sharing System",
-    summary:
-      "A local-network file sharing system where nearby devices discover each other and transfer files without internet.",
-    problemSolved:
-      "Highlights networking, discovery, and chunked transfer mechanics for real-time local device communication.",
-    architecture:
-      "Devices discover peers over LAN, negotiate transfers through TCP and UDP multicast, and stream files in chunks with retry and integrity checks. A lightweight UI tracks progress and device availability.",
-    technologies: [
-      "Java",
-      "Spring Boot",
-      "TCP Sockets",
-      "UDP Multicast",
-      "WebSocket",
-      "React",
-      "JavaFX",
-      "Docker",
-    ],
-    githubUrl: "https://github.com/KaushikMaslekar",
+    githubUrl:
+      "https://github.com/kaushikkishormaslekar/rag-end-to-end-pipeline",
     featured: true,
+    engineeringChallenges: [
+      "Chunk size and overlap optimization",
+      "Hybrid search trade-offs",
+      "Semantic vs keyword recall balancing",
+      "Citation accuracy and tracking",
+      "Scaling retrieval latency",
+    ],
   },
   {
-    slug: "cloud-native-network-device-monitoring-platform",
-    title: "Cloud-Native Network Device Monitoring Platform",
+    slug: "cloud-native-iot-telemetry-monitoring",
+    title: "Cloud-Native IoT Telemetry & Monitoring Platform",
     summary:
-      "A monitoring platform for servers, routers, and network devices using health checks, latency tracking, uptime checks, and alerting.",
+      "Scalable IoT monitoring platform ingesting telemetry from thousands of devices with real-time alerting, SLA tracking, and time-series analytics.",
     problemSolved:
-      "Provides a cloud-native way to monitor network infrastructure with SLA-aware reporting and actionable downtime alerts.",
+      "Handles high-cardinality metrics from distributed IoT devices. Real-time alerting based on anomaly detection prevents service degradation. SLA reporting enables accountability.",
     architecture:
-      "Health probes, ping checks, and latency collectors feed metrics into PostgreSQL and Prometheus. Grafana dashboards visualize uptime, packet loss, and alert state across the monitored fleet.",
+      "MQTT Broker ← Devices | REST API ← Devices → Time-Series DB (InfluxDB/TimescaleDB) + Event Stream (Kafka) → Prometheus scraper → Grafana dashboards. Alert Manager triggers incident workflows. Historical data archived to S3.",
     technologies: [
       "Spring Boot",
       "Python",
+      "MQTT",
       "PostgreSQL",
+      "Redis",
+      "Kafka",
       "Prometheus",
       "Grafana",
       "Docker",
+      "AWS",
     ],
     githubUrl: "https://github.com/KaushikMaslekar",
-    featured: false,
+    featured: true,
+    engineeringChallenges: [
+      "High-cardinality metric handling",
+      "Real-time anomaly detection",
+      "Metric cardinality explosion prevention",
+      "MQTT connection pooling",
+      "Time-series data retention and archival",
+    ],
   },
 ];
 

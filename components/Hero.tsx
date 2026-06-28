@@ -40,15 +40,14 @@ const floatingIcons = [
 ];
 
 const availabilityTags = [
-  "Available For Backend Roles",
-  "Available For Cloud Roles",
-  "Available For AI Roles",
+  "Available for Backend Engineer",
 ];
 
 const liveHeadlines = [
-  "Cloud-native backend systems",
-  "AI-powered product engineering",
-  "Distributed platforms at scale",
+  "Resilient Systems",
+  "Distributed Backends",
+  "Event Streaming",
+  "Cloud Infrastructure",
 ];
 
 const longestHeadline = liveHeadlines.reduce((longest, current) =>
@@ -117,56 +116,43 @@ export function Hero() {
 
           <motion.h3
             variants={itemVariants}
-            className="text-sm font-semibold uppercase tracking-[0.16em] text-zinc-400 md:text-base"
+            className="hidden"
           >
-            Backend · AI Engineering · Cloud Computing
+            Backend Engineer · Cloud Architect · Distributed Systems
           </motion.h3>
 
           <motion.h1
             variants={itemVariants}
-            className="relative max-w-2xl text-[2rem] leading-[1.06] tracking-tight text-foreground sm:break-words sm:text-[3.2rem] lg:text-[4rem]"
-          >
-            <span className="block pr-2 sm:hidden">{liveHeadlines[0]}</span>
-            <span className="invisible hidden pr-2 sm:block">
-              {longestHeadline}|
-            </span>
-            <span className="absolute inset-0 hidden pr-2 sm:block">
-              {typedHeadline}
-              <span className="ml-1 inline-block animate-pulse text-zinc-300">
-                |
-              </span>
-            </span>
-          </motion.h1>
-
-          <motion.h2
-            variants={itemVariants}
-            className="text-lg font-semibold leading-snug text-foreground/95 md:text-xl"
+            className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight tracking-tight text-foreground"
           >
             Kaushik Maslekar
-          </motion.h2>
+          </motion.h1>
 
           <motion.p
             variants={itemVariants}
             className="max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base md:text-lg"
           >
-            I build scalable backend systems and cloud-native infrastructure
-            using Java, Spring Boot, and modern distributed technologies.
+            I architect resilient, scalable backend systems using Java, Spring
+            Boot, and modern distributed technologies. Expertise in event-driven
+            architectures, microservices, and cloud infrastructure.
           </motion.p>
 
           <motion.p
             variants={itemVariants}
             className="max-w-2xl text-sm leading-relaxed text-zinc-300 sm:text-base md:text-lg"
           >
-            On the backend side, I design resilient APIs and event-driven
-            microservices for real production workloads.
+            Core focus: designing systems for reliability, observability, and
+            production-scale operations. Building payment platforms, streaming
+            architectures, and enterprise cloud deployments.
           </motion.p>
 
           <motion.p
             variants={itemVariants}
             className="max-w-2xl text-sm leading-relaxed text-zinc-300 sm:text-base md:text-lg"
           >
-            On the AI side, I build practical RAG and ML-powered features that
-            integrate cleanly into cloud-native systems.
+            Secondary expertise in RAG systems and LLM integration for
+            production applications. Infrastructure as Code using Terraform and
+            AWS.
           </motion.p>
 
           <motion.div
@@ -241,34 +227,40 @@ export function Hero() {
               </div>
               <span className="inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/5 px-2 py-1 text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
                 <Sparkles className="size-3 text-zinc-200" />
-                live config
+                profile card
               </span>
             </div>
-            <div className="mb-4 rounded-xl border border-white/10 bg-black/25 p-2 text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
-              platform blueprint
+            <div className="space-y-4">
+              <div className="space-y-1">
+                <p className="text-xs font-mono text-muted-foreground">role</p>
+                <p className="text-sm font-medium text-foreground">
+                  Backend, Cloud Engineer
+                </p>
+              </div>
+              <div className="space-y-1">
+                <p className="text-xs font-mono text-muted-foreground">
+                  expertise
+                </p>
+                <p className="text-sm font-medium text-foreground">
+                  Backend, Networking
+                </p>
+              </div>
+              <div className="space-y-1">
+                <p className="text-xs font-mono text-muted-foreground">
+                  focus areas
+                </p>
+                <div className="flex flex-wrap gap-1.5">
+                  {["APIs", "LLMs", "Java"].map((item) => (
+                    <span
+                      key={item}
+                      className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-2 py-1 text-xs text-muted-foreground"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
-            <p className="mb-4 text-xs text-muted-foreground">
-              system-architecture.ts
-            </p>
-            <pre className="max-w-full overflow-x-auto whitespace-pre-wrap break-words rounded-xl border border-white/10 bg-black/40 p-3 font-mono text-[11px] text-zinc-200 sm:whitespace-pre sm:p-4 sm:text-sm">
-              <code>
-                {`interface ServiceBoundary {
-  domain: "payments" | "events" | "observability";
-  scale: "horizontal";
-  strategy: "event-driven";
-}
-
-const cloudStack = {
-  runtime: "Spring Boot",
-  messaging: "Kafka",
-  orchestration: "Kubernetes",
-  datastore: ["PostgreSQL", "Redis", "MongoDB"],
-  infrastructure: "Terraform",
-};
-
-const objective = "99.95% service availability";`}
-              </code>
-            </pre>
           </div>
 
           {floatingIcons.map(({ icon: Icon, delay }, index) => (

@@ -51,38 +51,38 @@
 
 :root {
   --theme-transition-duration: 240ms;
-  --background: #ffffff;
-  --foreground: #000000;
+  --background: #fafafa;
+  --foreground: #111827;
   --card: #ffffff;
-  --card-foreground: #000000;
+  --card-foreground: #111827;
   --popover: #ffffff;
-  --popover-foreground: #000000;
+  --popover-foreground: #111827;
   --primary: #ffffff;
-  --primary-foreground: #000000;
-  --secondary: #f5f5f5;
-  --secondary-foreground: #000000;
-  --muted: #f5f5f5;
-  --muted-foreground: #000000;
-  --accent: #f1f1f1;
-  --accent-foreground: #000000;
-  --destructive: #d4d4d4;
-  --border: rgb(0 0 0 / 0.12);
-  --input: rgb(0 0 0 / 0.16);
-  --ring: rgb(0 0 0 / 0.35);
-  --chart-1: #171717;
-  --chart-2: #404040;
-  --chart-3: #737373;
-  --chart-4: #a3a3a3;
-  --chart-5: #d4d4d4;
+  --primary-foreground: #111827;
+  --secondary: #f3f4f6;
+  --secondary-foreground: #111827;
+  --muted: #f3f4f6;
+  --muted-foreground: #6b7280;
+  --accent: #f0f0f0;
+  --accent-foreground: #111827;
+  --destructive: #e5e7eb;
+  --border: rgb(229 231 235);
+  --input: rgb(243 244 246);
+  --ring: rgb(31 41 55 / 0.35);
+  --chart-1: #1f2937;
+  --chart-2: #374151;
+  --chart-3: #6b7280;
+  --chart-4: #9ca3af;
+  --chart-5: #d1d5db;
   --radius: 0.625rem;
   --sidebar: #ffffff;
-  --sidebar-foreground: #000000;
-  --sidebar-primary: #000000;
+  --sidebar-foreground: #111827;
+  --sidebar-primary: #111827;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #f5f5f5;
-  --sidebar-accent-foreground: #000000;
-  --sidebar-border: rgb(0 0 0 / 0.12);
-  --sidebar-ring: rgb(0 0 0 / 0.35);
+  --sidebar-accent: #f3f4f6;
+  --sidebar-accent-foreground: #111827;
+  --sidebar-border: rgb(229 231 235);
+  --sidebar-ring: rgb(31 41 55 / 0.35);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -182,13 +182,29 @@
     font-size: clamp(0.95rem, 1.05vw, 1.125rem);
   }
 
-  /* In light mode, force all text utility variants used in the app to pure black. */
-  html:not(.dark) .text-muted-foreground,
-  html:not(.dark) .text-zinc-200,
-  html:not(.dark) .text-zinc-300,
-  html:not(.dark) .text-zinc-400,
-  html:not(.dark) .text-zinc-500,
+  /* In light mode, use proper gray tones for readability. */
+  html:not(.dark) .text-muted-foreground {
+    color: #4b5563 !important;
+  }
+  html:not(.dark) .text-zinc-200 {
+    color: #4b5563 !important;
+  }
+  html:not(.dark) .text-zinc-300 {
+    color: #4b5563 !important;
+  }
+  html:not(.dark) .text-zinc-400 {
+    color: #57666f !important;
+  }
+  html:not(.dark) .text-zinc-500 {
+    color: #4b5563 !important;
+  }
   html:not(.dark) .text-foreground\/95 {
-    color: #000000;
+    color: #1f2937 !important;
+  }
+  html:not(.dark) .text-foreground {
+    color: #111827 !important;
+  }
+  html:not(.dark) .text-secondary-foreground {
+    color: #4b5563 !important;
   }
 }
