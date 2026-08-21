@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { featuredExperiences } from "@/data/skills";
 
+
 export function ExperienceTimeline() {
   return (
     <section className="py-6">

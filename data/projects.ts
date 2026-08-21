@@ -16,6 +16,126 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "full-stack-rag-chat-platform",
+    title: "Full-Stack RAG Chat Platform",
+    summary:
+      "Full-stack RAG chat application with a Next.js UI, Spring Boot API gateway (JWT auth, rate limiting), and FastAPI retrieval service communicating over SSE streaming.",
+    problemSolved:
+      "Eliminates hallucination in document question-answering through ChromaDB vector retrieval, page-aware chunking, cross-encoder reranking, and citation-grounded answer generation with automatic abstention on ungrounded queries.",
+    architecture:
+      "Next.js Frontend (SSE streaming) → Spring Boot Gateway (JWT Auth, Bucket4j Rate Limiting) → FastAPI Retrieval Service → ChromaDB Vector Store + Cross-Encoder Reranker → Citations & Grounded Generation.",
+    technologies: [
+      "Next.js",
+      "Spring Boot",
+      "FastAPI",
+      "ChromaDB",
+      "Python",
+      "Docker",
+      "SSE Streaming",
+    ],
+    githubUrl: "https://github.com/KaushikMaslekar",
+    featured: true,
+    engineeringChallenges: [
+      "ChromaDB retrieval pipeline with page-aware chunking and cross-encoder reranking",
+      "Citation-grounded generation with 100% correct abstention on ungrounded queries",
+      "Low-latency SSE streaming through a Spring Boot reactive gateway",
+    ],
+    metrics: [
+      {
+        label: "Recall@5",
+        value: "83.3%",
+      },
+      {
+        label: "MRR Score",
+        value: "0.83",
+      },
+      {
+        label: "End-to-End Latency",
+        value: "76ms avg",
+      },
+    ],
+  },
+  {
+    slug: "encrypted-traffic-classifier",
+    title: "Encrypted Traffic Classifier",
+    summary:
+      "Enterprise-grade encrypted traffic classification platform providing network visibility and threat detection without decrypting TLS traffic.",
+    problemSolved:
+      "Classifies encrypted network traffic and identifies threats passively without breaking end-to-end TLS encryption or violating user data privacy.",
+    architecture:
+      "Packet Capture Interface (PCAP) → Flow Reconstruction Pipeline → Metadata & JA3 Fingerprint Extraction Engine → ML Traffic Classification Model → Spring Boot Scalable Backend API.",
+    technologies: [
+      "Java",
+      "Spring Boot",
+      "Python",
+      "Machine Learning",
+      "Packet Analysis",
+      "TLS/JA3",
+      "Docker",
+    ],
+    githubUrl: "https://github.com/KaushikMaslekar",
+    featured: true,
+    engineeringChallenges: [
+      "High-throughput packet capture and full bidirectional flow reconstruction",
+      "Real-time JA3 fingerprinting and packet statistical feature extraction without payload decryption",
+      "Serving low-latency ML classification through a production Spring Boot service",
+    ],
+    metrics: [
+      {
+        label: "Privacy",
+        value: "Zero-Decrypt",
+      },
+      {
+        label: "Flow Analysis",
+        value: "Full Pipeline",
+      },
+      {
+        label: "Fingerprinting",
+        value: "JA3 + Meta",
+      },
+    ],
+  },
+  {
+    slug: "machinocare-predictive-maintenance",
+    title: "MachinoCare — AI Predictive Maintenance",
+    summary:
+      "End-to-end predictive maintenance system for industrial machinery combining IoT sensors, ML anomaly detection, and real-time telemetry diagnostics.",
+    problemSolved:
+      "Prevents catastrophic machinery breakdown through continuous ESP32 vibration telemetry ingestion, anomaly detection algorithms, and real-time failure prediction.",
+    architecture:
+      "ESP32 IoT Vibration Sensors → REST / WebSockets → FastAPI Backend → PostgreSQL Time-Series Storage → ML Anomaly Detection Engine → Streamlit Real-Time Diagnostic Dashboard.",
+    technologies: [
+      "FastAPI",
+      "Python",
+      "IoT (ESP32)",
+      "Streamlit",
+      "PostgreSQL",
+      "Machine Learning",
+      "WebSockets",
+    ],
+    githubUrl: "https://github.com/KaushikMaslekar",
+    featured: true,
+    engineeringChallenges: [
+      "Real-time high-frequency vibration data ingestion over WebSockets and REST",
+      "ML-based time-series anomaly detection on sensor streams",
+      "Live diagnostic dashboard synchronization with alert management",
+    ],
+    metrics: [
+      {
+        label: "Ingestion",
+        value: "Real-Time WS",
+      },
+      {
+        label: "IoT Hardware",
+        value: "ESP32 Sensors",
+      },
+      {
+        label: "Diagnostics",
+        value: "Streamlit UI",
+      },
+    ],
+  },
+  {
     slug: "payment-processing-system",
     title: "Payment Processing System",
     summary:
@@ -34,7 +154,7 @@ export const projects: Project[] = [
       "AWS",
     ],
     githubUrl: "https://github.com/KaushikMaslekar",
-    featured: true,
+    featured: false,
     engineeringChallenges: [
       "Idempotency under retry storms",
       "Exactly-once processing semantics",
@@ -62,7 +182,7 @@ export const projects: Project[] = [
       "Prometheus",
     ],
     githubUrl: "https://github.com/KaushikMaslekar",
-    featured: true,
+    featured: false,
     engineeringChallenges: [
       "Exactly-once delivery semantics",
       "Event ordering per partition",
@@ -91,43 +211,13 @@ export const projects: Project[] = [
       "Route 53",
     ],
     githubUrl: "https://github.com/KaushikMaslekar",
-    featured: true,
+    featured: false,
     engineeringChallenges: [
       "Multi-AZ high availability",
       "Security group management at scale",
       "VPC peering and routing",
       "Database failover automation",
       "Cost optimization and right-sizing",
-    ],
-  },
-  {
-    slug: "enterprise-rag-platform",
-    title: "Enterprise RAG Platform",
-    summary:
-      "Scalable Retrieval-Augmented Generation system processing enterprise documents with hybrid search (semantic + keyword), reranking, and citation tracking.",
-    problemSolved:
-      "Reduces LLM hallucinations by grounding responses in indexed documents. Hybrid search improves recall while reranking improves precision. Citation tracking enables audit trails for enterprise compliance.",
-    architecture:
-      "Document Upload → Chunking Pipeline (sentence-window strategy) → Dual Embedding (OpenAI + local model) → Vector DB (Pinecone) + BM25 index (Elasticsearch) → Hybrid Retrieval → Reranker (cross-encoder) → LLM Orchestration (LangChain) → Response with Citations.",
-    technologies: [
-      "Python",
-      "LangChain",
-      "LlamaIndex",
-      "Pinecone",
-      "Elasticsearch",
-      "FastAPI",
-      "Redis",
-      "Docker",
-    ],
-    githubUrl:
-      "https://github.com/kaushikkishormaslekar/rag-end-to-end-pipeline",
-    featured: true,
-    engineeringChallenges: [
-      "Chunk size and overlap optimization",
-      "Hybrid search trade-offs",
-      "Semantic vs keyword recall balancing",
-      "Citation accuracy and tracking",
-      "Scaling retrieval latency",
     ],
   },
   {
@@ -152,7 +242,7 @@ export const projects: Project[] = [
       "AWS",
     ],
     githubUrl: "https://github.com/KaushikMaslekar",
-    featured: true,
+    featured: false,
     engineeringChallenges: [
       "High-cardinality metric handling",
       "Real-time anomaly detection",

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Fira_Code } from "next/font/google";
 
 import { CommandPalette } from "@/components/CommandPalette";
+import { SpiderMan } from "@/components/SpiderMan";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import "./globals.css";
 
@@ -56,6 +57,7 @@ export default function RootLayout({
           enableSystem={false}
           storageKey="kaushikmaslekar-theme"
         >
+          <SpiderMan />
           {children}
           <CommandPalette />
         </ThemeProvider>
