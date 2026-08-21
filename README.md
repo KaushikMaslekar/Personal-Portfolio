@@ -1,1 +1,1 @@
-[![Personal Portfolio](portfolio.png)](https://kaushikmaslekar.vercel.app/)
+[![Personal Portfolio](personal-portfolio)](https://kaushikmaslekar.vercel.app/)
