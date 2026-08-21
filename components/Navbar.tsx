@@ -54,6 +54,20 @@ export function Navbar() {
           <button
             type="button"
             onClick={() =>
+              window.dispatchEvent(new CustomEvent("open-terminal"))
+            }
+            className="flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-950/20 px-3 py-1.5 text-xs text-emerald-400 transition-colors hover:border-emerald-500 hover:bg-emerald-950/40"
+            aria-label="Open developer terminal"
+          >
+            <span className="font-mono font-bold">&gt;_</span>
+            <span>CLI</span>
+            <kbd className="ml-0.5 rounded border border-emerald-500/30 px-1 py-0.5 text-[10px] text-emerald-300">
+              ~
+            </kbd>
+          </button>
+          <button
+            type="button"
+            onClick={() =>
               window.dispatchEvent(new CustomEvent("open-command-palette"))
             }
             className="flex items-center gap-1.5 rounded-full border border-white/15 px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:bg-white/5 hover:text-foreground"

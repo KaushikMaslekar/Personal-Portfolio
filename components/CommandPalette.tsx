@@ -18,6 +18,13 @@ type ResultItem = {
 
 const staticPages: ResultItem[] = [
   {
+    id: "page-terminal",
+    type: "page",
+    label: "Developer Terminal (CLI Mode)",
+    description: "Launch interactive terminal with commands (Shortcut: ~)",
+    href: "terminal://open",
+  },
+  {
     id: "page-home",
     type: "page",
     label: "Home",
@@ -133,6 +140,10 @@ export function CommandPalette() {
   const select = useCallback(
     (item: ResultItem) => {
       setOpen(false);
+      if (item.href === "terminal://open") {
+        window.dispatchEvent(new CustomEvent("open-terminal"));
+        return;
+      }
       router.push(item.href);
     },
     [router],
