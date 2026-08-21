@@ -168,6 +168,76 @@ export function SpiderMan() {
 
   return (
     <>
+      {/* ========================================================= */}
+      {/* 🕸️ PROMINENT ATMOSPHERIC BACKGROUND SPIDER-WEBS */}
+      {/* ========================================================= */}
+      <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden select-none opacity-60 dark:opacity-50 transition-opacity duration-700">
+        {/* Top-Left Corner Geometric Spiderweb */}
+        <div className="absolute -top-4 -left-4 w-80 h-80 sm:w-[420px] sm:h-[420px]">
+          <svg viewBox="0 0 300 300" className="w-full h-full stroke-white/50 fill-none" strokeWidth="1.2">
+            <defs>
+              <linearGradient id="webGradTopLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#ffffff" stopOpacity="0.9" />
+                <stop offset="50%" stopColor="#e2e8f0" stopOpacity="0.5" />
+                <stop offset="100%" stopColor="#94a3b8" stopOpacity="0.1" />
+              </linearGradient>
+            </defs>
+            {/* Radial Web Struts */}
+            <path d="M0 0 L300 0" stroke="url(#webGradTopLeft)" />
+            <path d="M0 0 L290 80" stroke="url(#webGradTopLeft)" />
+            <path d="M0 0 L260 150" stroke="url(#webGradTopLeft)" />
+            <path d="M0 0 L210 210" stroke="url(#webGradTopLeft)" />
+            <path d="M0 0 L150 260" stroke="url(#webGradTopLeft)" />
+            <path d="M0 0 L80 290" stroke="url(#webGradTopLeft)" />
+            <path d="M0 0 L0 300" stroke="url(#webGradTopLeft)" />
+
+            {/* Concentric Web Spirals */}
+            <path d="M50 0 Q45 20 40 40 Q20 45 0 50" stroke="url(#webGradTopLeft)" strokeWidth="1.4" />
+            <path d="M100 0 Q90 40 75 75 Q40 90 0 100" stroke="url(#webGradTopLeft)" strokeWidth="1.4" />
+            <path d="M150 0 Q135 60 110 110 Q60 135 0 150" stroke="url(#webGradTopLeft)" strokeWidth="1.3" />
+            <path d="M200 0 Q180 80 145 145 Q80 180 0 200" stroke="url(#webGradTopLeft)" strokeWidth="1.2" />
+            <path d="M250 0 Q225 100 180 180 Q100 225 0 250" stroke="url(#webGradTopLeft)" strokeWidth="1.1" />
+            <path d="M300 0 Q270 120 215 215 Q120 270 0 300" stroke="url(#webGradTopLeft)" strokeWidth="1.0" strokeDasharray="3 3" />
+          </svg>
+        </div>
+
+        {/* Top-Right Corner Spidey Web Canopy (Framing Spidey & Gwen) */}
+        <div className="absolute -top-6 -right-6 w-88 h-88 sm:w-[460px] sm:h-[460px]">
+          <svg viewBox="0 0 300 300" className="w-full h-full stroke-white/50 fill-none" strokeWidth="1.2">
+            <defs>
+              <linearGradient id="webGradTopRight" x1="100%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#ffffff" stopOpacity="0.9" />
+                <stop offset="50%" stopColor="#e2e8f0" stopOpacity="0.5" />
+                <stop offset="100%" stopColor="#94a3b8" stopOpacity="0.1" />
+              </linearGradient>
+            </defs>
+            {/* Radial Struts */}
+            <path d="M300 0 L0 0" stroke="url(#webGradTopRight)" />
+            <path d="M300 0 L10 80" stroke="url(#webGradTopRight)" />
+            <path d="M300 0 L40 150" stroke="url(#webGradTopRight)" />
+            <path d="M300 0 L90 210" stroke="url(#webGradTopRight)" />
+            <path d="M300 0 L150 260" stroke="url(#webGradTopRight)" />
+            <path d="M300 0 L220 290" stroke="url(#webGradTopRight)" />
+            <path d="M300 0 L300 300" stroke="url(#webGradTopRight)" />
+
+            {/* Spiral Connectors */}
+            <path d="M250 0 Q255 20 260 40 Q280 45 300 50" stroke="url(#webGradTopRight)" strokeWidth="1.4" />
+            <path d="M200 0 Q210 40 225 75 Q260 90 300 100" stroke="url(#webGradTopRight)" strokeWidth="1.4" />
+            <path d="M150 0 Q165 60 190 110 Q240 135 300 150" stroke="url(#webGradTopRight)" strokeWidth="1.3" />
+            <path d="M100 0 Q120 80 155 145 Q220 180 300 200" stroke="url(#webGradTopRight)" strokeWidth="1.2" />
+            <path d="M50 0 Q75 100 120 180 Q200 225 300 250" stroke="url(#webGradTopRight)" strokeWidth="1.1" />
+          </svg>
+        </div>
+
+        {/* Ambient Silk Strands */}
+        <div className="absolute top-1/3 left-8 w-64 h-32 opacity-40">
+          <svg viewBox="0 0 200 100" className="w-full h-full stroke-white/40 fill-none" strokeWidth="0.9">
+            <path d="M0 20 Q100 80 200 10" />
+            <path d="M20 0 Q110 60 190 90" strokeDasharray="3 3" />
+          </svg>
+        </div>
+      </div>
+
       {/* Background Web Splats & Popups */}
       <div className="pointer-events-none fixed inset-0 z-40 overflow-hidden">
         <AnimatePresence>

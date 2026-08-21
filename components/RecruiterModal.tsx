@@ -3,20 +3,12 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  Zap,
   X,
-  FileText,
   Copy,
   Check,
   Download,
-  ExternalLink,
-  GraduationCap,
-  Briefcase,
-  Layers,
-  Sparkles,
   Phone,
   Mail,
-  ShieldCheck,
   CheckCircle2,
 } from "lucide-react";
 import Link from "next/link";
@@ -49,132 +41,159 @@ export function RecruiterModal() {
       <AnimatePresence>
         {isOpen && (
           <div
-            className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 bg-black/75 backdrop-blur-md overflow-y-auto"
+            className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 bg-black/80 backdrop-blur-md overflow-y-auto"
             onClick={() => setIsOpen(false)}
           >
             <motion.div
-              initial={{ scale: 0.92, opacity: 0, y: 16 }}
+              initial={{ scale: 0.94, opacity: 0, y: 12 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.92, opacity: 0, y: 16 }}
-              transition={{ type: "spring", damping: 22, stiffness: 260 }}
+              exit={{ scale: 0.94, opacity: 0, y: 12 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-3xl border border-white/20 bg-zinc-950/95 p-6 sm:p-8 text-zinc-100 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] backdrop-blur-2xl"
+              className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-2xl border border-zinc-700 bg-zinc-950 p-6 sm:p-8 text-white shadow-2xl"
             >
               {/* Close Button */}
               <button
                 onClick={() => setIsOpen(false)}
-                className="absolute top-5 right-5 rounded-full border border-white/10 bg-white/5 p-2 text-zinc-400 hover:bg-white/10 hover:text-white transition-colors cursor-pointer"
+                className="absolute top-5 right-5 rounded-md border border-zinc-800 bg-zinc-900 p-1.5 text-zinc-400 hover:bg-zinc-800 hover:text-white transition-colors cursor-pointer"
                 title="Close"
               >
                 <X className="size-4" />
               </button>
 
-              {/* Header Badge & Title */}
-              <div className="space-y-2">
-                <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-950/40 px-3 py-1 text-xs font-mono font-medium text-emerald-400">
-                  <Zap className="size-3.5" />
-                  <span>1-Minute Recruiter Fast-Track</span>
-                </div>
-                <h2 className="text-2xl sm:text-3xl font-display font-bold text-white tracking-tight">
+              {/* Header */}
+              <div className="space-y-1.5 border-b border-zinc-800 pb-4">
+                <p className="font-mono text-xs uppercase tracking-widest text-zinc-400">
+                  Recruiter Fast-Track (1-Minute Overview)
+                </p>
+                <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white">
                   Kaushik Maslekar
                 </h2>
                 <p className="text-sm text-zinc-300 font-mono">
-                  Backend Engineer · Distributed Systems · Applied AI
+                  Final-year B.E. (AI &amp; DS) · Backend &amp; Distributed Systems Engineer
                 </p>
               </div>
 
-              {/* Quick Summary Snapshot */}
-              <div className="mt-5 rounded-2xl border border-white/10 bg-white/5 p-4 text-xs sm:text-sm text-zinc-300 leading-relaxed space-y-2">
+              {/* Summary */}
+              <div className="mt-3.5 text-xs text-zinc-300 leading-relaxed">
                 <p>
-                  Final-year <strong className="text-white">B.E. in Artificial Intelligence &amp; Data Science</strong> at MMCOE Pune.
-                  Specialized in building high-throughput <strong className="text-emerald-400">Java/Spring Boot</strong> microservices,
-                  distributed event streams with <strong className="text-cyan-400">Apache Kafka</strong>, resilient caching, and production-grade
-                  <strong className="text-purple-400"> RAG pipelines</strong>.
+                  Final-year B.E. (Artificial Intelligence &amp; Data Science) student at MMCOE Pune specializing in backend engineering and distributed systems. Builds REST APIs, event-driven services, and caching layers with Java/Spring Boot and Python, and has hands-on experience with Kafka, Redis, Docker, and AWS. Additional depth in computer networks (TCP/IP, TLS, traffic analysis) and applied AI (RAG pipelines, semantic search, vector databases).
                 </p>
               </div>
 
               {/* Verified Metrics Grid */}
-              <div className="mt-5 grid grid-cols-3 gap-3">
-                <div className="rounded-xl border border-white/10 bg-black/40 p-3 text-center">
-                  <p className="text-base sm:text-xl font-bold font-mono text-emerald-400">76ms</p>
-                  <p className="text-[10px] sm:text-xs text-zinc-400 mt-0.5">Avg RAG Latency</p>
+              <div className="mt-4 grid grid-cols-3 gap-3 border-y border-zinc-800 py-3">
+                <div className="text-center">
+                  <p className="text-base sm:text-lg font-bold font-mono text-white">76ms</p>
+                  <p className="text-[10px] sm:text-[11px] text-zinc-400 mt-0.5">Avg RAG Latency</p>
                 </div>
-                <div className="rounded-xl border border-white/10 bg-black/40 p-3 text-center">
-                  <p className="text-base sm:text-xl font-bold font-mono text-cyan-400">83.3%</p>
-                  <p className="text-[10px] sm:text-xs text-zinc-400 mt-0.5">Recall@5 (MRR 0.83)</p>
+                <div className="text-center border-x border-zinc-800">
+                  <p className="text-base sm:text-lg font-bold font-mono text-white">83.3%</p>
+                  <p className="text-[10px] sm:text-[11px] text-zinc-400 mt-0.5">Recall@5 (0.83 MRR)</p>
                 </div>
-                <div className="rounded-xl border border-white/10 bg-black/40 p-3 text-center">
-                  <p className="text-base sm:text-xl font-bold font-mono text-amber-400">Zero-Decrypt</p>
-                  <p className="text-[10px] sm:text-xs text-zinc-400 mt-0.5">TLS Packet Analysis</p>
-                </div>
-              </div>
-
-              {/* Key Highlights Section */}
-              <div className="mt-6 space-y-3 text-xs sm:text-sm">
-                <h3 className="font-mono text-xs uppercase tracking-wider text-zinc-400">Core Highlights</h3>
-                
-                <div className="space-y-2.5">
-                  <div className="flex items-start gap-2.5">
-                    <CheckCircle2 className="size-4 text-emerald-400 shrink-0 mt-0.5" />
-                    <div>
-                      <strong className="text-white">Flagship RAG Chat Application:</strong>
-                      <span className="text-zinc-300"> Architected with Next.js, Spring Boot API gateway (JWT auth, rate limiting), and FastAPI retrieval over SSE streaming.</span>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-2.5">
-                    <CheckCircle2 className="size-4 text-cyan-400 shrink-0 mt-0.5" />
-                    <div>
-                      <strong className="text-white">Encrypted Traffic Classification:</strong>
-                      <span className="text-zinc-300"> Full flow-analysis pipeline covering packet capture, JA3 fingerprinting, and ML classification without TLS decryption.</span>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-2.5">
-                    <CheckCircle2 className="size-4 text-purple-400 shrink-0 mt-0.5" />
-                    <div>
-                      <strong className="text-white">AI/ML Internship @ YBI Foundation:</strong>
-                      <span className="text-zinc-300"> Built document chunking, embedding workflows, and statistical validation pipelines.</span>
-                    </div>
-                  </div>
+                <div className="text-center">
+                  <p className="text-base sm:text-lg font-bold font-mono text-white">Zero-Decrypt</p>
+                  <p className="text-[10px] sm:text-[11px] text-zinc-400 mt-0.5">TLS Traffic Classifier</p>
                 </div>
               </div>
 
-              {/* Core Skill Pills */}
-              <div className="mt-6 space-y-2">
-                <h3 className="font-mono text-xs uppercase tracking-wider text-zinc-400">Primary Tech Stack</h3>
-                <div className="flex flex-wrap gap-1.5">
-                  {[
-                    "Java",
-                    "Spring Boot",
-                    "Python",
-                    "Apache Kafka",
-                    "Redis",
-                    "PostgreSQL",
-                    "ChromaDB",
-                    "FastAPI",
-                    "Docker",
-                    "AWS",
-                    "Next.js",
-                    "JUnit",
-                  ].map((tech) => (
-                    <span
-                      key={tech}
-                      className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-xs text-zinc-200 font-mono"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+              {/* Key Projects Section */}
+              <div className="mt-4 space-y-3 text-xs">
+                <h3 className="font-mono text-[11px] uppercase tracking-wider text-zinc-400">
+                  Key Projects (Direct from Resume)
+                </h3>
+
+                <div className="space-y-3">
+                  {/* Project 1 */}
+                  <div className="space-y-1 rounded-lg border border-zinc-800 bg-zinc-900/50 p-3">
+                    <div className="flex flex-wrap items-center justify-between gap-1">
+                      <h4 className="font-bold text-white text-xs">
+                        Full-Stack RAG Chat Platform
+                      </h4>
+                      <span className="font-mono text-[10.5px] text-zinc-400">
+                        Next.js, Spring Boot, FastAPI
+                      </span>
+                    </div>
+                    <ul className="space-y-0.5 text-zinc-300 text-[11.5px] list-disc list-inside">
+                      <li>Architected a full-stack RAG chat application with a Next.js UI, a Spring Boot API gateway (JWT auth, rate limiting), and a FastAPI retrieval service communicating over SSE streaming.</li>
+                      <li>Built a ChromaDB-backed retrieval pipeline with page-aware chunking and cross-encoder reranking, achieving 83.3% recall@5 and a 0.83 mean reciprocal rank on a golden evaluation set.</li>
+                      <li>Implemented citation-grounded answer generation with automatic abstention on ungrounded queries (100% correct abstention rate), averaging 76ms end-to-end query latency and 4.2 citations per answer.</li>
+                    </ul>
+                  </div>
+
+                  {/* Project 2 */}
+                  <div className="space-y-1 rounded-lg border border-zinc-800 bg-zinc-900/50 p-3">
+                    <div className="flex flex-wrap items-center justify-between gap-1">
+                      <h4 className="font-bold text-white text-xs">
+                        Encrypted Traffic Classifier
+                      </h4>
+                      <span className="font-mono text-[10.5px] text-zinc-400">
+                        Java, Spring Boot, ML, Packet Analysis
+                      </span>
+                    </div>
+                    <ul className="space-y-0.5 text-zinc-300 text-[11.5px] list-disc list-inside">
+                      <li>Designed an enterprise-grade encrypted traffic classification platform for network visibility and threat detection without decrypting TLS traffic.</li>
+                      <li>Built a full flow-analysis pipeline covering packet capture, flow reconstruction, and metadata/JA3 fingerprint extraction.</li>
+                      <li>Trained an ML-based traffic classifier and served it through a scalable Spring Boot backend.</li>
+                    </ul>
+                  </div>
+
+                  {/* Project 3 */}
+                  <div className="space-y-1 rounded-lg border border-zinc-800 bg-zinc-900/50 p-3">
+                    <div className="flex flex-wrap items-center justify-between gap-1">
+                      <h4 className="font-bold text-white text-xs">
+                        MachinoCare — AI-Powered Predictive Maintenance Platform
+                      </h4>
+                      <span className="font-mono text-[10.5px] text-zinc-400">
+                        FastAPI, IoT (ESP32), Streamlit, PostgreSQL
+                      </span>
+                    </div>
+                    <ul className="space-y-0.5 text-zinc-300 text-[11.5px] list-disc list-inside">
+                      <li>Built an end-to-end predictive maintenance system for industrial machinery combining IoT sensors, ML anomaly detection, and real-time monitoring.</li>
+                      <li>Designed a FastAPI backend ingesting ESP32 vibration data over REST/WebSockets, paired with a Streamlit dashboard for live visualization and diagnostics.</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
 
-              {/* Fast Action Buttons */}
-              <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3 pt-4 border-t border-white/10">
+              {/* Experience */}
+              <div className="mt-4 space-y-1.5 text-xs">
+                <h3 className="font-mono text-[11px] uppercase tracking-wider text-zinc-400">
+                  Experience
+                </h3>
+                <div className="rounded-lg border border-zinc-800 bg-zinc-900/50 p-3 space-y-1">
+                  <div className="flex flex-wrap items-center justify-between">
+                    <strong className="text-white text-xs">AI/ML Intern — YBI Foundation</strong>
+                    <span className="font-mono text-[10.5px] text-zinc-400">Feb 2026 – May 2026</span>
+                  </div>
+                  <ul className="space-y-0.5 text-zinc-300 text-[11.5px] list-disc list-inside pt-0.5">
+                    <li>Built a Retrieval-Augmented Generation (RAG) application in Python and LangChain to enable document-grounded question answering over large document sets.</li>
+                    <li>Implemented document chunking, embedding generation, and semantic retrieval to improve response accuracy and retrieval relevance.</li>
+                    <li>Ran exploratory data analysis, statistical validation, and data cleaning to prepare datasets for ML experimentation.</li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Technical Skills */}
+              <div className="mt-4 space-y-1.5">
+                <h3 className="font-mono text-[11px] uppercase tracking-wider text-zinc-400">
+                  Technical Skills
+                </h3>
+                <div className="text-[11px] leading-relaxed text-zinc-300 space-y-0.5 font-mono">
+                  <p><strong className="text-white font-sans">Backend &amp; Distributed:</strong> Java, Spring Boot, Microservices, REST APIs, Kafka, Redis, Event-Driven Architecture, Multithreading, Load Balancing</p>
+                  <p><strong className="text-white font-sans">AI/ML:</strong> Python, RAG, Semantic Retrieval, Embeddings, Pinecone, ChromaDB, Vector Search, Pandas, NumPy</p>
+                  <p><strong className="text-white font-sans">Databases &amp; Cloud:</strong> MySQL, MongoDB, PostgreSQL, AWS, Docker, Kubernetes, CI/CD</p>
+                  <p><strong className="text-white font-sans">Testing &amp; Monitoring:</strong> JUnit, Mockito, Prometheus, Grafana, Postman</p>
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3 pt-4 border-t border-zinc-800">
                 <Link
                   href="/Kaushik_Maslekar_Resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 rounded-xl bg-white px-4 py-2.5 text-xs sm:text-sm font-semibold text-black hover:bg-zinc-200 transition-colors shadow-lg"
+                  className="flex items-center justify-center gap-2 rounded-lg bg-white px-4 py-2.5 text-xs sm:text-sm font-semibold text-black hover:bg-zinc-200 transition-colors"
                 >
                   <Download className="size-4" />
                   <span>Download Resume PDF</span>
@@ -183,12 +202,12 @@ export function RecruiterModal() {
                 <div className="flex items-center gap-2">
                   <button
                     onClick={copyEmail}
-                    className="flex-1 flex items-center justify-center gap-1.5 rounded-xl border border-white/20 bg-white/5 px-3 py-2.5 text-xs font-mono text-white hover:bg-white/10 transition-colors cursor-pointer"
+                    className="flex-1 flex items-center justify-center gap-1.5 rounded-lg border border-zinc-700 bg-zinc-900 px-3 py-2.5 text-xs font-mono text-white hover:bg-zinc-800 transition-colors cursor-pointer"
                   >
                     {copiedEmail ? (
                       <>
-                        <Check className="size-3.5 text-emerald-400" />
-                        <span className="text-emerald-400">Email Copied!</span>
+                        <Check className="size-3.5 text-white" />
+                        <span>Copied!</span>
                       </>
                     ) : (
                       <>
@@ -200,12 +219,12 @@ export function RecruiterModal() {
 
                   <button
                     onClick={copyPhone}
-                    className="flex-1 flex items-center justify-center gap-1.5 rounded-xl border border-white/20 bg-white/5 px-3 py-2.5 text-xs font-mono text-white hover:bg-white/10 transition-colors cursor-pointer"
+                    className="flex-1 flex items-center justify-center gap-1.5 rounded-lg border border-zinc-700 bg-zinc-900 px-3 py-2.5 text-xs font-mono text-white hover:bg-zinc-800 transition-colors cursor-pointer"
                   >
                     {copiedPhone ? (
                       <>
-                        <Check className="size-3.5 text-emerald-400" />
-                        <span className="text-emerald-400">Phone Copied!</span>
+                        <Check className="size-3.5 text-white" />
+                        <span>Copied!</span>
                       </>
                     ) : (
                       <>
