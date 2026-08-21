@@ -25,6 +25,7 @@ interface CommandLog {
 
 const AVAILABLE_COMMANDS = [
   "help",
+  "recruiter",
   "whoami",
   "cat about.txt",
   "projects",
@@ -169,6 +170,14 @@ export function Terminal() {
               <p className="text-zinc-400 text-[11px]">Clear buffer / Close terminal window</p>
             </div>
           </div>
+        </div>
+      );
+    } else if (cmdLower === "recruiter" || cmdLower === "fasttrack" || cmdLower === "summary") {
+      window.dispatchEvent(new CustomEvent("open-recruiter-modal"));
+      resultNode = (
+        <div className="space-y-1 text-xs text-emerald-400 font-mono">
+          <p>⚡ Opening 1-Minute Recruiter Fast-Track modal...</p>
+          <p className="text-zinc-400">Snapshot loaded with key metrics, tech stack, and 1-click actions.</p>
         </div>
       );
     } else if (cmdLower === "whoami" || cmdLower === "cat about.txt" || cmdLower === "bio") {

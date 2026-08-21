@@ -18,6 +18,13 @@ type ResultItem = {
 
 const staticPages: ResultItem[] = [
   {
+    id: "page-recruiter",
+    type: "page",
+    label: "Recruiter Fast-Track (1-Min Read)",
+    description: "60-second executive summary & key proof points",
+    href: "recruiter://open",
+  },
+  {
     id: "page-terminal",
     type: "page",
     label: "Developer Terminal (CLI Mode)",
@@ -142,6 +149,10 @@ export function CommandPalette() {
       setOpen(false);
       if (item.href === "terminal://open") {
         window.dispatchEvent(new CustomEvent("open-terminal"));
+        return;
+      }
+      if (item.href === "recruiter://open") {
+        window.dispatchEvent(new CustomEvent("open-recruiter-modal"));
         return;
       }
       router.push(item.href);

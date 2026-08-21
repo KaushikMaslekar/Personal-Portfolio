@@ -10,6 +10,7 @@ import {
   Database,
   ServerCog,
   Sparkles,
+  Zap,
 } from "lucide-react";
 
 import { buttonVariants } from "@/components/ui/button";
@@ -159,11 +160,24 @@ export function Hero() {
             variants={itemVariants}
             className="flex flex-col gap-3 sm:flex-row sm:flex-wrap"
           >
+            <button
+              type="button"
+              onClick={() =>
+                window.dispatchEvent(new CustomEvent("open-recruiter-modal"))
+              }
+              className={cn(
+                buttonVariants(),
+                "group w-full rounded-full bg-emerald-500 px-6 text-black font-semibold hover:bg-emerald-400 sm:w-auto shadow-[0_0_20px_rgba(16,185,129,0.35)] cursor-pointer transition-all hover:scale-105",
+              )}
+            >
+              <Zap className="mr-2 size-4 fill-black" />
+              Recruiter Fast-Track (1-Min)
+            </button>
             <Link
               href="/#projects"
               className={cn(
-                buttonVariants(),
-                "group w-full rounded-full bg-white px-6 text-black hover:bg-white/90 sm:w-auto",
+                buttonVariants({ variant: "secondary" }),
+                "group w-full rounded-full px-6 sm:w-auto",
               )}
             >
               View Projects
@@ -172,8 +186,8 @@ export function Hero() {
             <Link
               href="/contact"
               className={cn(
-                buttonVariants({ variant: "secondary" }),
-                "w-full rounded-full px-6 sm:w-auto",
+                buttonVariants({ variant: "outline" }),
+                "w-full rounded-full border-white/20 bg-transparent px-6 sm:w-auto",
               )}
             >
               Contact Me
@@ -183,11 +197,11 @@ export function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               className={cn(
-                buttonVariants({ variant: "outline" }),
-                "w-full rounded-full border-white/20 bg-transparent px-6 sm:w-auto",
+                buttonVariants({ variant: "ghost" }),
+                "w-full rounded-full border border-white/10 px-6 sm:w-auto text-zinc-300 hover:text-white",
               )}
             >
-              Download Resume
+              Resume PDF
             </Link>
           </motion.div>
 

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Fira_Code } from "next/font/google";
 
 import { CommandPalette } from "@/components/CommandPalette";
+import { RecruiterModal } from "@/components/RecruiterModal";
 import { SpiderMan } from "@/components/SpiderMan";
 import { Terminal } from "@/components/Terminal";
 import { ThemeProvider } from "@/components/ThemeProvider";
@@ -62,6 +63,7 @@ export default function RootLayout({
           {children}
           <CommandPalette />
           <Terminal />
+          <RecruiterModal />
         </ThemeProvider>
       </body>
     </html>
