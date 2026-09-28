@@ -40,9 +40,7 @@ const floatingIcons = [
   { icon: Database, delay: 0.4 },
 ];
 
-const availabilityTags = [
-  "Available for Backend Engineer",
-];
+const availabilityTags = ["Available for Backend Engineer"];
 
 const liveHeadlines = [
   "Resilient Systems",
@@ -115,10 +113,7 @@ export function Hero() {
             ))}
           </motion.div>
 
-          <motion.h3
-            variants={itemVariants}
-            className="hidden"
-          >
+          <motion.h3 variants={itemVariants} className="hidden">
             Backend Engineer · Cloud Architect · Distributed Systems
           </motion.h3>
 
@@ -193,7 +188,7 @@ export function Hero() {
               Contact Me
             </Link>
             <Link
-              href="/Kaushik_Maslekar_Resume.pdf"
+              href="/kaushik_maslekar_resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className={cn(
