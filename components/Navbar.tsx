@@ -81,7 +81,7 @@ export function Navbar() {
           </button>
           <ThemeToggleClient />
           <Link
-            href="/Kaushik_Maslekar_Resume.pdf"
+            href="/kaushik_maslekar_resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="rounded-full border border-white/15 px-3 py-1.5 text-xs font-medium text-foreground transition-colors hover:bg-white/5"
