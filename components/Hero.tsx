@@ -188,7 +188,7 @@ export function Hero() {
               Contact Me
             </Link>
             <Link
-              href="/kaushik_maslekar_resume.pdf"
+              href="/kaushik-maslekar-resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className={cn(
