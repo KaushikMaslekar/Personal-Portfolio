@@ -47,7 +47,9 @@ export function Terminal() {
   const [logs, setLogs] = useState<CommandLog[]>([]);
   const [history, setHistory] = useState<string[]>([]);
   const [historyIndex, setHistoryIndex] = useState<number>(-1);
-  const [terminalTheme, setTerminalTheme] = useState<"matrix" | "monokai" | "cyberpunk">("monokai");
+  const [terminalTheme, setTerminalTheme] = useState<
+    "matrix" | "monokai" | "cyberpunk"
+  >("monokai");
   const [copied, setCopied] = useState(false);
 
   const { theme, setTheme } = useTheme();
@@ -60,7 +62,9 @@ export function Terminal() {
       // Toggle on Ctrl+` or Backquote when not in an input
       if (
         (e.ctrlKey && e.key === "`") ||
-        (e.key === "~" && document.activeElement?.tagName !== "INPUT" && document.activeElement?.tagName !== "TEXTAREA")
+        (e.key === "~" &&
+          document.activeElement?.tagName !== "INPUT" &&
+          document.activeElement?.tagName !== "TEXTAREA")
       ) {
         e.preventDefault();
         setIsOpen((prev) => !prev);
@@ -104,7 +108,10 @@ export function Terminal() {
               Kaushik Maslekar — Backend & Distributed Systems CLI [v2.4.0-prod]
             </p>
             <p className="text-zinc-400">
-              Type <span className="text-amber-300 font-bold">help</span> to see available commands or <span className="text-amber-300 font-bold">projects</span> to inspect backend systems.
+              Type <span className="text-amber-300 font-bold">help</span> to see
+              available commands or{" "}
+              <span className="text-amber-300 font-bold">projects</span> to
+              inspect backend systems.
             </p>
           </div>
         ),
@@ -131,64 +138,107 @@ export function Terminal() {
     if (cmdLower === "help" || cmdLower === "man") {
       resultNode = (
         <div className="space-y-3 text-xs leading-relaxed">
-          <p className="text-zinc-300 font-semibold border-b border-white/10 pb-1">AVAILABLE COMMANDS:</p>
+          <p className="text-zinc-300 font-semibold border-b border-white/10 pb-1">
+            AVAILABLE COMMANDS:
+          </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5 font-mono">
             <div>
-              <span className="text-cyan-400 font-bold">whoami</span> / <span className="text-cyan-400">cat about.txt</span>
-              <p className="text-zinc-400 text-[11px]">Developer background & summary</p>
+              <span className="text-cyan-400 font-bold">whoami</span> /{" "}
+              <span className="text-cyan-400">cat about.txt</span>
+              <p className="text-zinc-400 text-[11px]">
+                Developer background & summary
+              </p>
             </div>
             <div>
-              <span className="text-cyan-400 font-bold">projects</span> / <span className="text-cyan-400">curl /api/projects</span>
-              <p className="text-zinc-400 text-[11px]">List flagship backend projects</p>
+              <span className="text-cyan-400 font-bold">projects</span> /{" "}
+              <span className="text-cyan-400">curl /api/projects</span>
+              <p className="text-zinc-400 text-[11px]">
+                List flagship backend projects
+              </p>
             </div>
             <div>
               <span className="text-cyan-400 font-bold">skills</span>
-              <p className="text-zinc-400 text-[11px]">Technical skill matrix & tech stack</p>
+              <p className="text-zinc-400 text-[11px]">
+                Technical skill matrix & tech stack
+              </p>
             </div>
             <div>
               <span className="text-cyan-400 font-bold">benchmarks</span>
-              <p className="text-zinc-400 text-[11px]">RAG latency, recall & privacy metrics</p>
+              <p className="text-zinc-400 text-[11px]">
+                RAG latency, recall & privacy metrics
+              </p>
             </div>
             <div>
               <span className="text-cyan-400 font-bold">ssh prod-cluster</span>
-              <p className="text-zinc-400 text-[11px]">Simulated live K8s / Spring cluster check</p>
+              <p className="text-zinc-400 text-[11px]">
+                Simulated live K8s / Spring cluster check
+              </p>
             </div>
             <div>
-              <span className="text-cyan-400 font-bold">spidey</span> <span className="text-amber-300">[--spin | --shoot | --joke]</span>
-              <p className="text-zinc-400 text-[11px]">Control LEGO Spider-Man widget</p>
+              <span className="text-cyan-400 font-bold">spidey</span>{" "}
+              <span className="text-amber-300">
+                [--spin | --shoot | --joke]
+              </span>
+              <p className="text-zinc-400 text-[11px]">
+                Control LEGO Spider-Man widget
+              </p>
             </div>
             <div>
-              <span className="text-cyan-400 font-bold">theme</span> <span className="text-amber-300">[matrix | cyberpunk | monokai]</span>
-              <p className="text-zinc-400 text-[11px]">Switch terminal styling palette</p>
+              <span className="text-cyan-400 font-bold">theme</span>{" "}
+              <span className="text-amber-300">
+                [matrix | cyberpunk | monokai]
+              </span>
+              <p className="text-zinc-400 text-[11px]">
+                Switch terminal styling palette
+              </p>
             </div>
             <div>
               <span className="text-cyan-400 font-bold">contact</span>
-              <p className="text-zinc-400 text-[11px]">View contact info & social links</p>
+              <p className="text-zinc-400 text-[11px]">
+                View contact info & social links
+              </p>
             </div>
             <div>
-              <span className="text-cyan-400 font-bold">clear</span> / <span className="text-cyan-400 font-bold">exit</span>
-              <p className="text-zinc-400 text-[11px]">Clear buffer / Close terminal window</p>
+              <span className="text-cyan-400 font-bold">clear</span> /{" "}
+              <span className="text-cyan-400 font-bold">exit</span>
+              <p className="text-zinc-400 text-[11px]">
+                Clear buffer / Close terminal window
+              </p>
             </div>
           </div>
         </div>
       );
-    } else if (cmdLower === "recruiter" || cmdLower === "fasttrack" || cmdLower === "summary") {
+    } else if (
+      cmdLower === "recruiter" ||
+      cmdLower === "fasttrack" ||
+      cmdLower === "summary"
+    ) {
       window.dispatchEvent(new CustomEvent("open-recruiter-modal"));
       resultNode = (
         <div className="space-y-1 text-xs text-emerald-400 font-mono">
           <p>⚡ Opening 1-Minute Recruiter Fast-Track modal...</p>
-          <p className="text-zinc-400">Snapshot loaded with key metrics, tech stack, and 1-click actions.</p>
+          <p className="text-zinc-400">
+            Snapshot loaded with key metrics, tech stack, and 1-click actions.
+          </p>
         </div>
       );
-    } else if (cmdLower === "whoami" || cmdLower === "cat about.txt" || cmdLower === "bio") {
+    } else if (
+      cmdLower === "whoami" ||
+      cmdLower === "cat about.txt" ||
+      cmdLower === "bio"
+    ) {
       resultNode = (
         <div className="space-y-2 text-xs text-zinc-300">
           <p className="font-bold text-white text-sm">Kaushik Maslekar</p>
-          <p className="text-cyan-300 font-mono">Backend Engineer · Distributed Systems · Applied AI</p>
+          <p className="text-cyan-300 font-mono">
+            Backend Engineer · Distributed Systems · Applied AI
+          </p>
           <p className="leading-relaxed">
-            Final-year B.E. (Artificial Intelligence & Data Science) student at MMCOE Pune.
-            Specializes in high-throughput Java/Spring Boot microservices, Kafka event streaming,
-            resilient caching architectures (Redis/Postgres), and production RAG pipelines.
+            Final-year B.E. (Artificial Intelligence & Data Science) student at
+            MMCOE Pune. Specializes in backend engineering and distributed
+            systems, building REST APIs, event-driven services, and AI-powered
+            applications with Java, Spring Boot, Python, Kafka, Redis, Docker,
+            and AWS.
           </p>
           <div className="pt-1 text-zinc-400 flex flex-wrap gap-4 text-[11px]">
             <span>📍 Pune, India</span>
@@ -197,23 +247,39 @@ export function Terminal() {
           </div>
         </div>
       );
-    } else if (cmdLower === "projects" || cmdLower.startsWith("curl") || cmdLower === "ls projects") {
+    } else if (
+      cmdLower === "projects" ||
+      cmdLower.startsWith("curl") ||
+      cmdLower === "ls projects"
+    ) {
       resultNode = (
         <div className="space-y-4 text-xs">
-          <p className="text-zinc-300 font-semibold">HTTP/1.1 200 OK — Flagship Projects Payload:</p>
+          <p className="text-zinc-300 font-semibold">
+            HTTP/1.1 200 OK — Flagship Projects Payload:
+          </p>
           <div className="space-y-3">
             {projects.slice(0, 3).map((p, idx) => (
-              <div key={p.slug} className="rounded-lg border border-white/10 bg-white/5 p-2.5">
+              <div
+                key={p.slug}
+                className="rounded-lg border border-white/10 bg-white/5 p-2.5"
+              >
                 <div className="flex items-center justify-between">
                   <span className="font-bold text-cyan-300">
                     [{idx + 1}] {p.title}
                   </span>
-                  <span className="text-[10px] text-zinc-400 font-mono">STATUS: PRODUCTION</span>
+                  <span className="text-[10px] text-zinc-400 font-mono">
+                    STATUS: PRODUCTION
+                  </span>
                 </div>
-                <p className="text-zinc-300 mt-1 text-[11px] leading-relaxed">{p.summary}</p>
+                <p className="text-zinc-300 mt-1 text-[11px] leading-relaxed">
+                  {p.summary}
+                </p>
                 <div className="mt-2 flex flex-wrap gap-1">
                   {p.technologies.map((t) => (
-                    <span key={t} className="rounded bg-black/40 px-1.5 py-0.5 text-[10px] text-emerald-400 font-mono">
+                    <span
+                      key={t}
+                      className="rounded bg-black/40 px-1.5 py-0.5 text-[10px] text-emerald-400 font-mono"
+                    >
                       {t}
                     </span>
                   ))}
@@ -229,9 +295,16 @@ export function Terminal() {
           <p className="text-zinc-300 font-semibold">TECHNICAL SKILL MATRIX:</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {skillGroups.slice(0, 4).map((group) => (
-              <div key={group.title} className="rounded border border-white/10 bg-black/30 p-2">
-                <p className="text-amber-400 font-bold text-[11px] font-mono mb-1">{group.title}</p>
-                <p className="text-zinc-300 text-[11px] leading-snug">{group.items.join(" · ")}</p>
+              <div
+                key={group.title}
+                className="rounded border border-white/10 bg-black/30 p-2"
+              >
+                <p className="text-amber-400 font-bold text-[11px] font-mono mb-1">
+                  {group.title}
+                </p>
+                <p className="text-zinc-300 text-[11px] leading-snug">
+                  {group.items.join(" · ")}
+                </p>
               </div>
             ))}
           </div>
@@ -240,7 +313,9 @@ export function Terminal() {
     } else if (cmdLower === "benchmarks") {
       resultNode = (
         <div className="space-y-2 text-xs">
-          <p className="text-zinc-300 font-semibold">PRODUCTION BENCHMARKS & EVALUATION METRICS:</p>
+          <p className="text-zinc-300 font-semibold">
+            PRODUCTION BENCHMARKS & EVALUATION METRICS:
+          </p>
           <div className="overflow-x-auto">
             <table className="w-full text-left font-mono text-[11px] border-collapse border border-white/10">
               <thead>
@@ -253,28 +328,60 @@ export function Terminal() {
               </thead>
               <tbody className="text-zinc-300">
                 <tr>
-                  <td className="p-1.5 border border-white/10">Full-Stack RAG Chat</td>
-                  <td className="p-1.5 border border-white/10">Recall@5 / MRR</td>
-                  <td className="p-1.5 border border-white/10 text-emerald-400 font-bold">83.3% / 0.83 MRR</td>
-                  <td className="p-1.5 border border-white/10 text-emerald-400">PASSED</td>
+                  <td className="p-1.5 border border-white/10">
+                    Full-Stack RAG Chat
+                  </td>
+                  <td className="p-1.5 border border-white/10">
+                    Recall@5 / MRR
+                  </td>
+                  <td className="p-1.5 border border-white/10 text-emerald-400 font-bold">
+                    83.3% / 0.83 MRR
+                  </td>
+                  <td className="p-1.5 border border-white/10 text-emerald-400">
+                    PASSED
+                  </td>
                 </tr>
                 <tr>
-                  <td className="p-1.5 border border-white/10">Full-Stack RAG Chat</td>
-                  <td className="p-1.5 border border-white/10">End-to-End Latency</td>
-                  <td className="p-1.5 border border-white/10 text-emerald-400 font-bold">76ms avg</td>
-                  <td className="p-1.5 border border-white/10 text-emerald-400">OPTIMAL</td>
+                  <td className="p-1.5 border border-white/10">
+                    Full-Stack RAG Chat
+                  </td>
+                  <td className="p-1.5 border border-white/10">
+                    End-to-End Latency
+                  </td>
+                  <td className="p-1.5 border border-white/10 text-emerald-400 font-bold">
+                    76ms avg
+                  </td>
+                  <td className="p-1.5 border border-white/10 text-emerald-400">
+                    OPTIMAL
+                  </td>
                 </tr>
                 <tr>
-                  <td className="p-1.5 border border-white/10">Encrypted Traffic Classifier</td>
-                  <td className="p-1.5 border border-white/10">TLS Decryption</td>
-                  <td className="p-1.5 border border-white/10 text-cyan-400 font-bold">0% (Zero-Decrypt)</td>
-                  <td className="p-1.5 border border-white/10 text-emerald-400">SECURE</td>
+                  <td className="p-1.5 border border-white/10">
+                    Encrypted Traffic Classifier
+                  </td>
+                  <td className="p-1.5 border border-white/10">
+                    TLS Decryption
+                  </td>
+                  <td className="p-1.5 border border-white/10 text-cyan-400 font-bold">
+                    0% (Zero-Decrypt)
+                  </td>
+                  <td className="p-1.5 border border-white/10 text-emerald-400">
+                    SECURE
+                  </td>
                 </tr>
                 <tr>
-                  <td className="p-1.5 border border-white/10">MachinoCare IoT</td>
-                  <td className="p-1.5 border border-white/10">ESP32 Telemetry</td>
-                  <td className="p-1.5 border border-white/10 text-emerald-400 font-bold">Real-Time WS</td>
-                  <td className="p-1.5 border border-white/10 text-emerald-400">STREAMING</td>
+                  <td className="p-1.5 border border-white/10">
+                    MachinoCare IoT
+                  </td>
+                  <td className="p-1.5 border border-white/10">
+                    ESP32 Telemetry
+                  </td>
+                  <td className="p-1.5 border border-white/10 text-emerald-400 font-bold">
+                    Real-Time WS
+                  </td>
+                  <td className="p-1.5 border border-white/10 text-emerald-400">
+                    STREAMING
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -284,16 +391,32 @@ export function Terminal() {
     } else if (cmdLower.startsWith("ssh") || cmdLower.startsWith("k8s")) {
       resultNode = (
         <div className="space-y-1.5 text-xs font-mono text-zinc-300">
-          <p className="text-yellow-400">Connecting to cluster: prod-eu-central-1.k8s.local...</p>
-          <p className="text-zinc-400">[200 OK] Handshake established (mTLS encrypted)</p>
+          <p className="text-yellow-400">
+            Connecting to cluster: prod-eu-central-1.k8s.local...
+          </p>
+          <p className="text-zinc-400">
+            [200 OK] Handshake established (mTLS encrypted)
+          </p>
           <div className="mt-2 space-y-1 text-[11px]">
-            <p className="text-emerald-400">● spring-boot-gateway-7b9f848-x4z9    1/1 Running (0 restarts, 42d)</p>
-            <p className="text-emerald-400">● fastapi-rag-retriever-6c2a11-b8k1    1/1 Running (0 restarts, 42d)</p>
-            <p className="text-emerald-400">● chromadb-vector-cluster-5f98-k91q    3/3 Running (0 restarts, 42d)</p>
-            <p className="text-emerald-400">● kafka-broker-cluster-0..2            3/3 Running (0 restarts, 42d)</p>
-            <p className="text-emerald-400">● postgresql-ha-primary-0             1/1 Running (0 restarts, 42d)</p>
+            <p className="text-emerald-400">
+              ● spring-boot-gateway-7b9f848-x4z9 1/1 Running (0 restarts, 42d)
+            </p>
+            <p className="text-emerald-400">
+              ● fastapi-rag-retriever-6c2a11-b8k1 1/1 Running (0 restarts, 42d)
+            </p>
+            <p className="text-emerald-400">
+              ● chromadb-vector-cluster-5f98-k91q 3/3 Running (0 restarts, 42d)
+            </p>
+            <p className="text-emerald-400">
+              ● kafka-broker-cluster-0..2 3/3 Running (0 restarts, 42d)
+            </p>
+            <p className="text-emerald-400">
+              ● postgresql-ha-primary-0 1/1 Running (0 restarts, 42d)
+            </p>
           </div>
-          <p className="text-cyan-400 pt-2">Cluster Health: 100% HEALTHY · Zero unhandled exceptions</p>
+          <p className="text-cyan-400 pt-2">
+            Cluster Health: 100% HEALTHY · Zero unhandled exceptions
+          </p>
         </div>
       );
     } else if (mainCmd === "spidey") {
@@ -319,26 +442,69 @@ export function Terminal() {
         ];
         resultNode = (
           <p className="text-amber-300 font-mono text-xs">
-            LEGO Spidey says: &quot;{jokes[Math.floor(Math.random() * jokes.length)]}&quot;
+            LEGO Spidey says: &quot;
+            {jokes[Math.floor(Math.random() * jokes.length)]}&quot;
           </p>
         );
       }
     } else if (mainCmd === "theme") {
       const selected = args[0]?.toLowerCase();
-      if (selected === "matrix" || selected === "cyberpunk" || selected === "monokai") {
+      if (
+        selected === "matrix" ||
+        selected === "cyberpunk" ||
+        selected === "monokai"
+      ) {
         setTerminalTheme(selected);
-        resultNode = <p className="text-emerald-400 text-xs">Terminal theme switched to: {selected}</p>;
+        resultNode = (
+          <p className="text-emerald-400 text-xs">
+            Terminal theme switched to: {selected}
+          </p>
+        );
       } else {
-        resultNode = <p className="text-zinc-400 text-xs">Usage: theme [matrix | cyberpunk | monokai]</p>;
+        resultNode = (
+          <p className="text-zinc-400 text-xs">
+            Usage: theme [matrix | cyberpunk | monokai]
+          </p>
+        );
       }
     } else if (cmdLower === "contact") {
       resultNode = (
         <div className="space-y-1.5 text-xs text-zinc-300 font-mono">
           <p className="text-white font-bold">LET&apos;S CONNECT:</p>
-          <p>📧 Email: <a href="mailto:maslekarkaushik@gmail.com" className="text-cyan-400 underline">maslekarkaushik@gmail.com</a></p>
-          <p>🐙 GitHub: <a href="https://github.com/KaushikMaslekar" target="_blank" rel="noreferrer" className="text-cyan-400 underline">github.com/KaushikMaslekar</a></p>
-          <p>🌐 Web: <a href="https://kaushikmaslekar.vercel.app" target="_blank" rel="noreferrer" className="text-cyan-400 underline">kaushikmaslekar.vercel.app</a></p>
-          <p>📱 Phone: <span className="text-emerald-400">+91 9325790846</span></p>
+          <p>
+            📧 Email:{" "}
+            <a
+              href="mailto:maslekarkaushik@gmail.com"
+              className="text-cyan-400 underline"
+            >
+              maslekarkaushik@gmail.com
+            </a>
+          </p>
+          <p>
+            🐙 GitHub:{" "}
+            <a
+              href="https://github.com/KaushikMaslekar"
+              target="_blank"
+              rel="noreferrer"
+              className="text-cyan-400 underline"
+            >
+              github.com/KaushikMaslekar
+            </a>
+          </p>
+          <p>
+            🌐 Web:{" "}
+            <a
+              href="https://kaushikmaslekar.vercel.app"
+              target="_blank"
+              rel="noreferrer"
+              className="text-cyan-400 underline"
+            >
+              kaushikmaslekar.vercel.app
+            </a>
+          </p>
+          <p>
+            📱 Phone: <span className="text-emerald-400">+91 9325790846</span>
+          </p>
         </div>
       );
     } else if (cmdLower === "clear") {
@@ -350,14 +516,25 @@ export function Terminal() {
     } else if (cmdLower.includes("sudo rm -rf")) {
       resultNode = (
         <div className="space-y-1 text-xs font-mono text-red-500 font-bold">
-          <p>⚠️ PERMISSION DENIED: Spider-Sense detected a catastrophic command!</p>
-          <p className="text-amber-300">LEGO Spidey shot a web line and stopped your keystroke! 🕸️🧱</p>
+          <p>
+            ⚠️ PERMISSION DENIED: Spider-Sense detected a catastrophic command!
+          </p>
+          <p className="text-amber-300">
+            LEGO Spidey shot a web line and stopped your keystroke! 🕸️🧱
+          </p>
         </div>
       );
     } else {
       resultNode = (
         <p className="text-red-400 text-xs font-mono">
-          command not found: {cmd}. Type <span className="text-amber-300 underline cursor-pointer" onClick={() => handleCommand("help")}>help</span> to view available commands.
+          command not found: {cmd}. Type{" "}
+          <span
+            className="text-amber-300 underline cursor-pointer"
+            onClick={() => handleCommand("help")}
+          >
+            help
+          </span>{" "}
+          to view available commands.
         </p>
       );
     }
@@ -380,7 +557,10 @@ export function Terminal() {
     } else if (e.key === "ArrowUp") {
       e.preventDefault();
       if (history.length === 0) return;
-      const nextIndex = historyIndex === -1 ? history.length - 1 : Math.max(0, historyIndex - 1);
+      const nextIndex =
+        historyIndex === -1
+          ? history.length - 1
+          : Math.max(0, historyIndex - 1);
       setHistoryIndex(nextIndex);
       setInputVal(history[nextIndex] || "");
     } else if (e.key === "ArrowDown") {
@@ -396,7 +576,9 @@ export function Terminal() {
       }
     } else if (e.key === "Tab") {
       e.preventDefault();
-      const match = AVAILABLE_COMMANDS.find((c) => c.startsWith(inputVal.toLowerCase()));
+      const match = AVAILABLE_COMMANDS.find((c) =>
+        c.startsWith(inputVal.toLowerCase()),
+      );
       if (match) {
         setInputVal(match);
       }
@@ -404,7 +586,9 @@ export function Terminal() {
   };
 
   const copyBuffer = () => {
-    const text = logs.map((l) => `kaushik@portfolio:~$ ${l.command}`).join("\n");
+    const text = logs
+      .map((l) => `kaushik@portfolio:~$ ${l.command}`)
+      .join("\n");
     navigator.clipboard.writeText(text);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
@@ -444,8 +628,8 @@ export function Terminal() {
                 terminalTheme === "matrix"
                   ? "bg-black/95 text-emerald-400 font-mono border-emerald-500/30"
                   : terminalTheme === "cyberpunk"
-                  ? "bg-zinc-950/95 text-pink-400 font-mono border-pink-500/30"
-                  : "bg-zinc-950/95 text-zinc-100 font-mono"
+                    ? "bg-zinc-950/95 text-pink-400 font-mono border-pink-500/30"
+                    : "bg-zinc-950/95 text-zinc-100 font-mono"
               }`}
             >
               {/* Terminal Title Bar */}
@@ -482,13 +666,21 @@ export function Terminal() {
                     className="text-zinc-400 hover:text-white transition-colors cursor-pointer p-1"
                     title="Copy Terminal Output"
                   >
-                    {copied ? <Check className="size-3.5 text-emerald-400" /> : <Copy className="size-3.5" />}
+                    {copied ? (
+                      <Check className="size-3.5 text-emerald-400" />
+                    ) : (
+                      <Copy className="size-3.5" />
+                    )}
                   </button>
                   <button
                     onClick={() => setIsMaximized(!isMaximized)}
                     className="text-zinc-400 hover:text-white transition-colors cursor-pointer p-1 hidden sm:inline-block"
                   >
-                    {isMaximized ? <Minimize2 className="size-3.5" /> : <Maximize2 className="size-3.5" />}
+                    {isMaximized ? (
+                      <Minimize2 className="size-3.5" />
+                    ) : (
+                      <Maximize2 className="size-3.5" />
+                    )}
                   </button>
                   <button
                     onClick={() => setIsOpen(false)}
@@ -509,12 +701,18 @@ export function Terminal() {
                   <div key={log.id} className="space-y-1">
                     {log.command !== "welcome" && (
                       <div className="flex items-center gap-2 font-mono">
-                        <span className="text-emerald-400 font-bold">kaushik@portfolio</span>
+                        <span className="text-emerald-400 font-bold">
+                          kaushik@portfolio
+                        </span>
                         <span className="text-zinc-500">:</span>
                         <span className="text-cyan-400">~</span>
                         <span className="text-zinc-400">$</span>
-                        <span className="text-white font-semibold">{log.command}</span>
-                        <span className="text-[10px] text-zinc-600 ml-auto font-mono">{log.time}</span>
+                        <span className="text-white font-semibold">
+                          {log.command}
+                        </span>
+                        <span className="text-[10px] text-zinc-600 ml-auto font-mono">
+                          {log.time}
+                        </span>
                       </div>
                     )}
                     <div className="pl-0 sm:pl-2">{log.output}</div>
@@ -523,7 +721,9 @@ export function Terminal() {
 
                 {/* Active Prompt Line */}
                 <div className="flex items-center gap-2 pt-1 font-mono">
-                  <span className="text-emerald-400 font-bold">kaushik@portfolio</span>
+                  <span className="text-emerald-400 font-bold">
+                    kaushik@portfolio
+                  </span>
                   <span className="text-zinc-500">:</span>
                   <span className="text-cyan-400">~</span>
                   <span className="text-zinc-400">$</span>

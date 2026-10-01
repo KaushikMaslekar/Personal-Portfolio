@@ -19,19 +19,19 @@ export const techStack = [
 ] as const;
 
 export const backendSkills = [
-  "Microservices Architecture",
-  "Event-Driven Systems",
-  "Distributed Transaction Handling",
-  "High-Performance APIs",
-  "System Design & Scalability",
-  "Cloud Infrastructure",
-  "Observability & Monitoring",
-  "Idempotent API Design",
-  "Exactly-Once Processing",
-  "Circuit Breakers & Resilience",
-  "Infrastructure as Code",
-  "Containerization",
-  "RAG & Vector Search",
+  "Java",
+  "Python",
+  "C++",
+  "Spring Boot",
+  "REST APIs",
+  "Microservices",
+  "Kafka",
+  "Redis",
+  "Event-Driven Architecture",
+  "Multithreading",
+  "Load Balancing",
+  "RAG",
+  "LangChain",
 ] as const;
 
 export type SkillGroup = {
@@ -41,96 +41,63 @@ export type SkillGroup = {
 
 export const skillGroups: SkillGroup[] = [
   {
-    title: "Backend & Frameworks",
+    title: "Languages",
+    items: [
+      "Java",
+      "Python",
+      "C++",
+    ],
+  },
+  {
+    title: "Backend & Distributed Systems",
     items: [
       "Spring Boot",
-      "Spring Cloud",
-      "Spring Security",
+      "REST APIs",
       "Microservices",
-      "REST API Design",
-      "API Gateways",
+      "Kafka",
+      "Redis",
+      "Event-Driven Architecture",
+      "Multithreading",
+      "Load Balancing",
     ],
   },
   {
-    title: "Distributed Systems",
+    title: "AI/ML",
     items: [
-      "Apache Kafka",
-      "Event Streaming",
-      "Consumer Groups",
-      "Exactly-Once Semantics",
-      "Message Ordering",
-      "Dead-Letter Queues",
+      "Machine Learning",
+      "LLM",
+      "Neural Networks",
+      "RAG",
+      "LangChain",
+      "Pandas",
+      "NumPy",
     ],
   },
   {
-    title: "Databases & Caching",
+    title: "Databases",
     items: [
+      "MySQL",
       "PostgreSQL",
       "MongoDB",
-      "Redis",
-      "Data Modeling",
-      "Connection Pooling",
-      "Query Optimization",
-      "Replication & Failover",
     ],
   },
   {
-    title: "Cloud & Infrastructure",
+    title: "Cloud & DevOps",
     items: [
-      "AWS (EC2, RDS, VPC, S3, Route 53)",
-      "Terraform",
-      "Infrastructure as Code",
-      "Multi-AZ Architecture",
-      "Auto Scaling",
-      "Load Balancing",
-      "Security Groups & IAM",
-    ],
-  },
-  {
-    title: "Observability & Monitoring",
-    items: [
-      "Prometheus",
-      "Grafana",
-      "CloudWatch",
-      "Distributed Tracing",
-      "Structured Logging",
-      "SLO/SLI Definition",
-      "Alert Management",
-    ],
-  },
-  {
-    title: "Containerization & Orchestration",
-    items: [
+      "AWS",
       "Docker",
       "Kubernetes",
-      "Helm",
-      "Container Networking",
-      "StatefulSets & DaemonSets",
-      "Service Mesh Concepts",
+      "CI/CD",
     ],
   },
   {
-    title: "AI & RAG (Secondary)",
+    title: "Testing & Observability",
     items: [
-      "LangChain",
-      "Vector Databases (FAISS, Pinecone)",
-      "Hybrid Search (Semantic + BM25)",
-      "Retrieval-Augmented Generation",
-      "LLM Orchestration",
-      "Prompt Engineering",
-    ],
-  },
-  {
-    title: "Development Tools",
-    items: [
-      "Maven",
-      "Gradle",
-      "Git",
       "JUnit",
       "Mockito",
       "Postman",
-      "IntelliJ IDEA",
-      "VS Code",
+      "Prometheus",
+      "Grafana",
     ],
   },
 ];
@@ -158,21 +125,15 @@ export const featuredExperiences: FeaturedExperience[] = [
     company: "YBI Foundation",
     period: "Feb 2026 - May 2026",
     summary:
-      "Worked on practical machine learning and LLM applications, focusing on data processing pipelines and Retrieval-Augmented Generation systems.",
+      "Built a document-grounded question-answering application using Python and LangChain, with a focus on retrieval quality across large document collections.",
     contributions: [
-      "Built a Retrieval-Augmented Generation (RAG) application using Python and LangChain for document-grounded question answering.",
-      "Developed document ingestion workflows including preprocessing, chunking, embedding generation, and semantic retrieval mechanisms.",
-      "Automated feature engineering and statistical analysis pipelines using Python, Pandas, and NumPy.",
-      "Improved retrieval quality through prompt engineering and evaluation of different retrieval strategies.",
+      "Developed a Retrieval-Augmented Generation (RAG) application for document-grounded question answering over large document collections.",
+      "Implemented document chunking, embedding generation, and semantic retrieval to improve retrieval relevance and answer quality.",
     ],
     technologies: [
       "Python",
       "LangChain",
-      "FAISS",
-      "Pandas",
-      "NumPy",
       "RAG",
-      "LLM Applications",
     ],
     githubUrl:
       "https://github.com/kaushikkishormaslekar/rag-end-to-end-pipeline",
@@ -180,17 +141,9 @@ export const featuredExperiences: FeaturedExperience[] = [
 ];
 
 export const education = {
-  degree: "B.Tech in Artificial Intelligence and Data Science",
-  institution: "Marathwada Mitra Mandal's College of Engineering, Pune",
-  period: "Aug 2024 - Present",
+  degree: "B.E. in Artificial Intelligence and Data Science (Pursuing)",
+  institution: "Marathawada Mitra Mandal's College of Engineering, Pune",
+  period: "Aug 2024 - Present · Expected Graduation: 2027 · CGPA: 8.6/10",
 };
 
-export const educationEntries = [
-  education,
-  {
-    degree: "Diploma in Computer Engineering",
-    institution:
-      "Krushnaji Purushottam Chousalkar Yogeshwari Polytechnic, Ambajogai",
-    period: "June 2022 - April 2024",
-  },
-] as const;
+export const educationEntries = [education] as const;

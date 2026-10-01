@@ -128,27 +128,27 @@ export function Hero() {
             variants={itemVariants}
             className="max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base md:text-lg"
           >
-            I architect resilient, scalable backend systems using Java, Spring
-            Boot, and modern distributed technologies. Expertise in event-driven
-            architectures, microservices, and cloud infrastructure.
+            Final-year B.E. student in Artificial Intelligence and Data Science,
+            specializing in backend engineering and distributed systems. I
+            build REST APIs, event-driven services, and AI-powered applications
+            using Java, Spring Boot, Python, Kafka, Redis, Docker, and AWS.
           </motion.p>
 
           <motion.p
             variants={itemVariants}
             className="max-w-2xl text-sm leading-relaxed text-zinc-300 sm:text-base md:text-lg"
           >
-            Core focus: designing systems for reliability, observability, and
-            production-scale operations. Building payment platforms, streaming
-            architectures, and enterprise cloud deployments.
+            My work spans RAG pipelines and semantic retrieval, computer
+            networks, and scalable backend architecture.
           </motion.p>
 
           <motion.p
             variants={itemVariants}
             className="max-w-2xl text-sm leading-relaxed text-zinc-300 sm:text-base md:text-lg"
           >
-            Secondary expertise in RAG systems and LLM integration for
-            production applications. Infrastructure as Code using Terraform and
-            AWS.
+            I am pursuing a B.E. in Artificial Intelligence and Data Science at
+            Marathawada Mitra Mandal's College of Engineering, Pune, with an
+            expected graduation in 2027.
           </motion.p>
 
           <motion.div
@@ -243,7 +243,7 @@ export function Hero() {
               <div className="space-y-1">
                 <p className="text-xs font-mono text-muted-foreground">role</p>
                 <p className="text-sm font-medium text-foreground">
-                  Backend, Cloud Engineer
+                  Backend Engineering Student
                 </p>
               </div>
               <div className="space-y-1">
@@ -251,7 +251,7 @@ export function Hero() {
                   expertise
                 </p>
                 <p className="text-sm font-medium text-foreground">
-                  Backend, Networking
+                  Distributed Systems, Applied AI
                 </p>
               </div>
               <div className="space-y-1">
@@ -259,7 +259,7 @@ export function Hero() {
                   focus areas
                 </p>
                 <div className="flex flex-wrap gap-1.5">
-                  {["APIs", "LLMs", "Java"].map((item) => (
+                  {["APIs", "RAG", "Java"].map((item) => (
                     <span
                       key={item}
                       className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-2 py-1 text-xs text-muted-foreground"

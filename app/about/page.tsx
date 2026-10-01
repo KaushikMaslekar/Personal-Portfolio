@@ -23,10 +23,11 @@ export default function AboutPage() {
             </h1>
             <p className="mt-4 max-w-3xl text-base leading-relaxed text-muted-foreground md:text-lg">
               AI engineering enthusiast with hands-on experience in machine
-              learning pipelines, scalable backend infrastructure, and
-              cloud-native systems. I focus on building reliable APIs,
-              event-driven services, and production-grade platforms that balance
-              performance, maintainability, and observability.
+              intelligence and data science, specializing in backend
+              engineering and distributed systems. I build REST APIs,
+              event-driven services, and AI-powered applications, with a strong
+              foundation in RAG pipelines, semantic retrieval, computer
+              networks, and scalable backend architecture.
             </p>
           </section>
 

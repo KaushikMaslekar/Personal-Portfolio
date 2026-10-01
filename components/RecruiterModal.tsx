@@ -70,30 +70,50 @@ export function RecruiterModal() {
                   Kaushik Maslekar
                 </h2>
                 <p className="text-sm text-zinc-300 font-mono">
-                  Final-year B.E. (AI &amp; DS) · Backend &amp; Distributed Systems Engineer
+                  Final-year B.E. (AI &amp; DS) · Backend &amp; Distributed
+                  Systems Engineer
                 </p>
               </div>
 
               {/* Summary */}
               <div className="mt-3.5 text-xs text-zinc-300 leading-relaxed">
                 <p>
-                  Final-year B.E. (Artificial Intelligence &amp; Data Science) student at MMCOE Pune specializing in backend engineering and distributed systems. Builds REST APIs, event-driven services, and caching layers with Java/Spring Boot and Python, and has hands-on experience with Kafka, Redis, Docker, and AWS. Additional depth in computer networks (TCP/IP, TLS, traffic analysis) and applied AI (RAG pipelines, semantic search, vector databases).
+                  Final-year B.E. (Artificial Intelligence &amp; Data Science)
+                  student at MMCOE Pune specializing in backend engineering and
+                  distributed systems. Builds REST APIs, event-driven services,
+                  and caching layers with Java/Spring Boot and Python, and has
+                  hands-on experience with Kafka, Redis, Docker, and AWS.
+                  Additional depth in computer networks (TCP/IP, TLS, traffic
+                  analysis) and applied AI (RAG pipelines, semantic search,
+                  vector databases).
                 </p>
               </div>
 
               {/* Verified Metrics Grid */}
               <div className="mt-4 grid grid-cols-3 gap-3 border-y border-zinc-800 py-3">
                 <div className="text-center">
-                  <p className="text-base sm:text-lg font-bold font-mono text-white">76ms</p>
-                  <p className="text-[10px] sm:text-[11px] text-zinc-400 mt-0.5">Avg RAG Latency</p>
+                  <p className="text-base sm:text-lg font-bold font-mono text-white">
+                    76ms
+                  </p>
+                  <p className="text-[10px] sm:text-[11px] text-zinc-400 mt-0.5">
+                    Avg RAG Latency
+                  </p>
                 </div>
                 <div className="text-center border-x border-zinc-800">
-                  <p className="text-base sm:text-lg font-bold font-mono text-white">83.3%</p>
-                  <p className="text-[10px] sm:text-[11px] text-zinc-400 mt-0.5">Recall@5 (0.83 MRR)</p>
+                  <p className="text-base sm:text-lg font-bold font-mono text-white">
+                    83.3%
+                  </p>
+                  <p className="text-[10px] sm:text-[11px] text-zinc-400 mt-0.5">
+                    Recall@5 (0.83 MRR)
+                  </p>
                 </div>
                 <div className="text-center">
-                  <p className="text-base sm:text-lg font-bold font-mono text-white">Zero-Decrypt</p>
-                  <p className="text-[10px] sm:text-[11px] text-zinc-400 mt-0.5">TLS Traffic Classifier</p>
+                  <p className="text-base sm:text-lg font-bold font-mono text-white">
+                    Zero-Decrypt
+                  </p>
+                  <p className="text-[10px] sm:text-[11px] text-zinc-400 mt-0.5">
+                    TLS Traffic Classifier
+                  </p>
                 </div>
               </div>
 
@@ -115,9 +135,24 @@ export function RecruiterModal() {
                       </span>
                     </div>
                     <ul className="space-y-0.5 text-zinc-300 text-[11.5px] list-disc list-inside">
-                      <li>Architected a full-stack RAG chat application with a Next.js UI, a Spring Boot API gateway (JWT auth, rate limiting), and a FastAPI retrieval service communicating over SSE streaming.</li>
-                      <li>Built a ChromaDB-backed retrieval pipeline with page-aware chunking and cross-encoder reranking, achieving 83.3% recall@5 and a 0.83 mean reciprocal rank on a golden evaluation set.</li>
-                      <li>Implemented citation-grounded answer generation with automatic abstention on ungrounded queries (100% correct abstention rate), averaging 76ms end-to-end query latency and 4.2 citations per answer.</li>
+                      <li>
+                        Architected a full-stack RAG chat application with a
+                        Next.js UI, a Spring Boot API gateway (JWT auth, rate
+                        limiting), and a FastAPI retrieval service communicating
+                        over SSE streaming.
+                      </li>
+                      <li>
+                        Built a ChromaDB-backed retrieval pipeline with
+                        page-aware chunking and cross-encoder reranking,
+                        achieving 83.3% recall@5 and a 0.83 mean reciprocal rank
+                        on a golden evaluation set.
+                      </li>
+                      <li>
+                        Implemented citation-grounded answer generation with
+                        automatic abstention on ungrounded queries (100% correct
+                        abstention rate), averaging 76ms end-to-end query
+                        latency and 4.2 citations per answer.
+                      </li>
                     </ul>
                   </div>
 
@@ -132,9 +167,20 @@ export function RecruiterModal() {
                       </span>
                     </div>
                     <ul className="space-y-0.5 text-zinc-300 text-[11.5px] list-disc list-inside">
-                      <li>Designed an enterprise-grade encrypted traffic classification platform for network visibility and threat detection without decrypting TLS traffic.</li>
-                      <li>Built a full flow-analysis pipeline covering packet capture, flow reconstruction, and metadata/JA3 fingerprint extraction.</li>
-                      <li>Trained an ML-based traffic classifier and served it through a scalable Spring Boot backend.</li>
+                      <li>
+                        Designed an enterprise-grade encrypted traffic
+                        classification platform for network visibility and
+                        threat detection without decrypting TLS traffic.
+                      </li>
+                      <li>
+                        Built a full flow-analysis pipeline covering packet
+                        capture, flow reconstruction, and metadata/JA3
+                        fingerprint extraction.
+                      </li>
+                      <li>
+                        Trained an ML-based traffic classifier and served it
+                        through a scalable Spring Boot backend.
+                      </li>
                     </ul>
                   </div>
 
@@ -149,8 +195,16 @@ export function RecruiterModal() {
                       </span>
                     </div>
                     <ul className="space-y-0.5 text-zinc-300 text-[11.5px] list-disc list-inside">
-                      <li>Built an end-to-end predictive maintenance system for industrial machinery combining IoT sensors, ML anomaly detection, and real-time monitoring.</li>
-                      <li>Designed a FastAPI backend ingesting ESP32 vibration data over REST/WebSockets, paired with a Streamlit dashboard for live visualization and diagnostics.</li>
+                      <li>
+                        Built an end-to-end predictive maintenance system for
+                        industrial machinery combining IoT sensors, ML anomaly
+                        detection, and real-time monitoring.
+                      </li>
+                      <li>
+                        Designed a FastAPI backend ingesting ESP32 vibration
+                        data over REST/WebSockets, paired with a Streamlit
+                        dashboard for live visualization and diagnostics.
+                      </li>
                     </ul>
                   </div>
                 </div>
@@ -163,13 +217,24 @@ export function RecruiterModal() {
                 </h3>
                 <div className="rounded-lg border border-zinc-800 bg-zinc-900/50 p-3 space-y-1">
                   <div className="flex flex-wrap items-center justify-between">
-                    <strong className="text-white text-xs">AI/ML Intern — YBI Foundation</strong>
-                    <span className="font-mono text-[10.5px] text-zinc-400">Feb 2026 – May 2026</span>
+                    <strong className="text-white text-xs">
+                      AI/ML Intern — YBI Foundation
+                    </strong>
+                    <span className="font-mono text-[10.5px] text-zinc-400">
+                      Feb 2026 – May 2026
+                    </span>
                   </div>
                   <ul className="space-y-0.5 text-zinc-300 text-[11.5px] list-disc list-inside pt-0.5">
-                    <li>Built a Retrieval-Augmented Generation (RAG) application in Python and LangChain to enable document-grounded question answering over large document sets.</li>
-                    <li>Implemented document chunking, embedding generation, and semantic retrieval to improve response accuracy and retrieval relevance.</li>
-                    <li>Ran exploratory data analysis, statistical validation, and data cleaning to prepare datasets for ML experimentation.</li>
+                    <li>
+                      Built a Retrieval-Augmented Generation (RAG) application
+                      in Python and LangChain to enable document-grounded
+                      question answering over large document sets.
+                    </li>
+                    <li>
+                      Implemented document chunking, embedding generation, and
+                      semantic retrieval to improve response accuracy and
+                      retrieval relevance.
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -180,17 +245,37 @@ export function RecruiterModal() {
                   Technical Skills
                 </h3>
                 <div className="text-[11px] leading-relaxed text-zinc-300 space-y-0.5 font-mono">
-                  <p><strong className="text-white font-sans">Backend &amp; Distributed:</strong> Java, Spring Boot, Microservices, REST APIs, Kafka, Redis, Event-Driven Architecture, Multithreading, Load Balancing</p>
-                  <p><strong className="text-white font-sans">AI/ML:</strong> Python, RAG, Semantic Retrieval, Embeddings, Pinecone, ChromaDB, Vector Search, Pandas, NumPy</p>
-                  <p><strong className="text-white font-sans">Databases &amp; Cloud:</strong> MySQL, MongoDB, PostgreSQL, AWS, Docker, Kubernetes, CI/CD</p>
-                  <p><strong className="text-white font-sans">Testing &amp; Monitoring:</strong> JUnit, Mockito, Prometheus, Grafana, Postman</p>
+                  <p>
+                    <strong className="text-white font-sans">
+                      Backend &amp; Distributed:
+                    </strong>{" "}
+                    Java, Spring Boot, Microservices, REST APIs, Kafka, Redis,
+                    Event-Driven Architecture, Multithreading, Load Balancing
+                  </p>
+                  <p>
+                    <strong className="text-white font-sans">AI/ML:</strong>{" "}
+                    Python, RAG, Semantic Retrieval, Embeddings, Pinecone,
+                    ChromaDB, Vector Search, Pandas, NumPy
+                  </p>
+                  <p>
+                    <strong className="text-white font-sans">
+                      Databases &amp; Cloud:
+                    </strong>{" "}
+                    MySQL, MongoDB, PostgreSQL, AWS, Docker, Kubernetes, CI/CD
+                  </p>
+                  <p>
+                    <strong className="text-white font-sans">
+                      Testing &amp; Monitoring:
+                    </strong>{" "}
+                    JUnit, Mockito, Prometheus, Grafana, Postman
+                  </p>
                 </div>
               </div>
 
               {/* Action Buttons */}
               <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3 pt-4 border-t border-zinc-800">
                 <Link
-                  href="/Kaushik_Maslekar_Resume.pdf"
+                  href="/kaushik_maslekar_resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 rounded-lg bg-white px-4 py-2.5 text-xs sm:text-sm font-semibold text-black hover:bg-zinc-200 transition-colors"
